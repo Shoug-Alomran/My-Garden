@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS340 - Chapter 4: Relational Model Exam</title>
+    <title>CS340 - Chapter 5: Basic SQL Exam</title>
     <style>
         * {
             margin: 0;
@@ -140,7 +140,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
         }
 
         .option:hover {
@@ -151,9 +151,11 @@
         .option input[type="radio"],
         .option input[type="checkbox"] {
             margin-right: 12px;
+            margin-top: 3px;
             cursor: pointer;
             width: 18px;
             height: 18px;
+            flex-shrink: 0;
         }
 
         .option.selected {
@@ -167,7 +169,7 @@
             padding: 15px;
             border: 2px solid #e5e7eb;
             border-radius: 8px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Courier New', monospace;
             font-size: 0.95em;
             resize: vertical;
         }
@@ -175,56 +177,6 @@
         textarea:focus {
             outline: none;
             border-color: #667eea;
-        }
-
-        .feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            display: none;
-            animation: slideIn 0.3s ease;
-        }
-
-        .feedback.show {
-            display: block;
-        }
-
-        .feedback.correct {
-            background: #ecfdf5;
-            border: 2px solid #10b981;
-            color: #047857;
-        }
-
-        .feedback.incorrect {
-            background: #fef2f2;
-            border: 2px solid #ef4444;
-            color: #991b1b;
-        }
-
-        .feedback-title {
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 1.05em;
-        }
-
-        .explanation {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid currentColor;
-            opacity: 0.9;
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-
-        .model-answer {
-            margin-top: 15px;
-            padding: 12px;
-            background: rgba(0,0,0,0.05);
-            border-left: 3px solid currentColor;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-            white-space: pre-wrap;
-            line-height: 1.6;
         }
 
         .buttons-container {
@@ -363,27 +315,6 @@
             border-top: 1px solid #e5e7eb;
         }
 
-        .keywords-found {
-            margin-top: 10px;
-            padding: 10px;
-            background: rgba(251, 191, 36, 0.1);
-            border-left: 3px solid #fbbf24;
-            font-size: 0.9em;
-        }
-
-        .keyword-match {
-            background: #fbbf24;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-weight: 600;
-        }
-
-        .review-section {
-            margin-top: 40px;
-            border-top: 3px solid #e5e7eb;
-            padding-top: 30px;
-        }
-
         .review-question {
             margin-bottom: 30px;
             padding: 20px;
@@ -403,6 +334,54 @@
             border-left: 3px solid #3b82f6;
             margin: 10px 0;
             font-size: 0.95em;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            color: #1e40af;
+            font-size: 0.95em;
+        }
+
+        .code-block {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        .table-question {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+
+        .table-question td, .table-question th {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .table-question th {
+            background: #667eea;
+            color: white;
+        }
+
+        .review-section {
+            margin-top: 40px;
+            border-top: 3px solid #e5e7eb;
+            padding-top: 30px;
         }
 
         @media (max-width: 768px) {
@@ -426,15 +405,15 @@
                 width: 100%;
             }
 
+            .question-header {
+                flex-direction: column;
+            }
+
             .badge {
                 margin-left: 0;
                 margin-top: 10px;
                 display: block;
                 width: fit-content;
-            }
-
-            .question-header {
-                flex-direction: column;
             }
         }
     </style>
@@ -442,7 +421,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>📊 Chapter 4: Relational Model</h1>
+            <h1>💾 Chapter 5: Basic SQL</h1>
             <p>CS340 - Introduction to Database Systems</p>
             <div class="progress-bar">
                 <div class="progress-fill"></div>
@@ -488,208 +467,260 @@
         const questions = [
             {
                 type: 'mcq',
-                question: 'Which of the following correctly defines a relation in the relational model?',
+                question: 'What does the SELECT statement do in SQL?',
                 options: [
-                    'A collection of unrelated data stored in files',
-                    'A two-dimensional table consisting of rows (tuples) and columns (attributes) with atomic values',
-                    'A set of procedures for managing database files',
-                    'A connection between two database tables'
+                    'Creates a new table in the database',
+                    'Retrieves data from one or more tables',
+                    'Modifies existing data in a table',
+                    'Deletes rows from a table'
                 ],
                 correct: 1,
-                explanation: 'A relation is formally defined as a two-dimensional table where each row represents a tuple (entity instance) and each column represents an attribute. All values in cells must be atomic (indivisible, single-valued).',
+                explanation: 'The SELECT statement is used to retrieve (query) data from a database. It allows you to specify which columns and rows you want to fetch from one or more tables.',
                 pastExam: false
             },
             {
                 type: 'mcq',
-                question: 'What is the degree (or arity) of a relation?',
+                question: 'In SQL, which keyword removes duplicate rows from query results?',
                 options: [
-                    'The number of tuples in the relation',
-                    'The number of attributes (columns) in the relation',
-                    'The number of candidate keys',
-                    'The total number of cells in the relation'
+                    'ALL',
+                    'DISTINCT',
+                    'UNIQUE',
+                    'REMOVE'
                 ],
                 correct: 1,
-                explanation: 'The degree (or arity) of a relation refers to the number of columns/attributes. For example, a relation with 5 attributes has a degree of 5. The number of tuples (rows) is called the cardinality.',
+                explanation: 'The DISTINCT keyword eliminates duplicate tuples from the result set. By default, SELECT returns all rows including duplicates (SELECT ALL is implicit).',
+                pastExam: true
+            },
+            {
+                type: 'mcq',
+                question: 'Which SQL clause is used to filter rows based on conditions?',
+                options: [
+                    'SELECT',
+                    'FROM',
+                    'WHERE',
+                    'ORDER BY'
+                ],
+                correct: 2,
+                explanation: 'The WHERE clause specifies conditions that rows must satisfy to be included in the result set. It performs selection (restriction) of tuples based on predicates.',
                 pastExam: false
             },
             {
                 type: 'mcq',
-                question: 'In the relational model, what is cardinality?',
+                question: 'What is the correct syntax for a basic SELECT statement?',
                 options: [
-                    'The number of attributes in a relation',
-                    'The number of tuples (rows) in a relation at a particular moment',
-                    'The degree of dependency between two relations',
-                    'The maximum number of relationships between entities'
+                    'SELECT * WHERE FROM table;',
+                    'SELECT * FROM table WHERE condition;',
+                    'FROM table SELECT * WHERE condition;',
+                    'SELECT FROM table * WHERE condition;'
                 ],
                 correct: 1,
-                explanation: 'Cardinality refers to the number of tuples (rows) currently in a relation. It changes whenever data is inserted, deleted, or updated. Degree refers to the number of attributes. Cardinality is dynamic; degree is static.',
+                explanation: 'The correct syntax is: SELECT [columns] FROM [table] WHERE [condition]. The FROM clause specifies the table(s), WHERE filters rows, and SELECT specifies which columns to return.',
                 pastExam: false
             },
             {
                 type: 'mcq',
-                question: 'Which of the following is a characteristic of the relational model?',
+                question: 'Which of the following SQL statements would retrieve all employees with a salary greater than 50000?',
                 options: [
-                    'Allows composite and multivalued attributes within a single relation',
-                    'All values in a tuple must be atomic (indivisible)',
-                    'Tuples within a relation are ordered by default',
-                    'Attributes can have NULL values without restriction'
+                    'SELECT * FROM EMPLOYEE WHERE salary < 50000;',
+                    'SELECT * FROM EMPLOYEE WHERE salary > 50000;',
+                    'SELECT * FROM EMPLOYEE HAVING salary > 50000;',
+                    'SELECT * FROM EMPLOYEE WHERE salary = 50000;'
                 ],
                 correct: 1,
-                explanation: 'The First Normal Form (1NF) constraint requires that all values in a relation must be atomic. This means no composite or multivalued attributes are allowed within a single cell. Each cell contains exactly one value.',
+                explanation: 'The > operator is used for "greater than". The WHERE clause is for filtering rows. HAVING is used after GROUP BY for aggregate conditions.',
                 pastExam: true
             },
             {
                 type: 'mcq',
-                question: 'What is a superkey?',
+                question: 'Which SQL command is used to insert new rows into a table?',
                 options: [
-                    'A single attribute that uniquely identifies a tuple',
-                    'A set of one or more attributes that uniquely identifies a tuple',
-                    'The primary key of a relation',
-                    'A foreign key that references another relation'
+                    'CREATE',
+                    'UPDATE',
+                    'INSERT',
+                    'ADD'
                 ],
-                correct: 1,
-                explanation: 'A superkey is a set of attributes (one or more) that can uniquely identify a tuple in a relation. A key is a minimal superkey (removing any attribute makes it non-unique). Every key is a superkey, but not every superkey is a key.',
+                correct: 2,
+                explanation: 'The INSERT statement adds new records/tuples to a table. Syntax: INSERT INTO table VALUES (...) or INSERT INTO table (columns) VALUES (...).',
                 pastExam: true
             },
             {
                 type: 'mcq',
-                question: 'What is the difference between a key and a superkey?',
+                question: 'What does the UPDATE statement do?',
                 options: [
-                    'There is no difference; they are the same thing',
-                    'A key is a minimal superkey; removing any attribute from a key makes it non-unique',
-                    'A superkey is always smaller than a key',
-                    'A key can have NULL values, but a superkey cannot'
+                    'Deletes rows from a table',
+                    'Modifies existing data in a table',
+                    'Adds new rows to a table',
+                    'Recreates the table structure'
                 ],
                 correct: 1,
-                explanation: 'A key is a MINIMAL superkey. This means: (1) It uniquely identifies each tuple, and (2) Removing any attribute from it would destroy the uniqueness property. A superkey doesn\'t have to be minimal.',
+                explanation: 'The UPDATE statement modifies existing data in one or more columns of existing rows. Syntax: UPDATE table SET column=value WHERE condition;',
                 pastExam: false
             },
             {
                 type: 'mcq',
-                question: 'Which constraint ensures that no primary key attribute can have a NULL value?',
+                question: 'Which SQL statement removes all rows from a table permanently?',
                 options: [
-                    'Domain constraint',
-                    'Entity integrity constraint',
-                    'Referential integrity constraint',
-                    'Key uniqueness constraint'
+                    'DROP TABLE;',
+                    'DELETE FROM table;',
+                    'TRUNCATE TABLE;',
+                    'REMOVE FROM table;'
                 ],
-                correct: 1,
-                explanation: 'Entity Integrity Constraint states that the primary key attributes of a relation cannot be NULL. This ensures that every tuple can be uniquely identified and distinguished from others.',
-                pastExam: true
-            },
-            {
-                type: 'mcq',
-                question: 'What is the primary function of a foreign key?',
-                options: [
-                    'To uniquely identify a tuple within its own relation',
-                    'To link tuples from one relation to tuples in another relation',
-                    'To enforce domain constraints on attributes',
-                    'To prevent duplicate values in a column'
-                ],
-                correct: 1,
-                explanation: 'A foreign key is an attribute (or set of attributes) in one relation that references the primary key of another relation. It maintains relationships between tables and enforces referential integrity.',
-                pastExam: true
-            },
-            {
-                type: 'mcq',
-                question: 'Which statement is true regarding Referential Integrity?',
-                options: [
-                    'Every primary-key value must match a primary-key value in an associated table',
-                    'Every primary-key value must match a foreign-key value in an associated table',
-                    'Every foreign-key value must match a foreign-key value in an associated table',
-                    'Every foreign-key value must match a primary-key value in an associated table'
-                ],
-                correct: 3,
-                explanation: 'Referential Integrity states that every value of a foreign key must either: (1) Match an existing primary key value in the referenced relation, or (2) Be NULL. This prevents orphaned records.',
-                pastExam: true
-            },
-            {
-                type: 'mcq',
-                question: 'What does the domain constraint specify in the relational model?',
-                options: [
-                    'The relationship between two tables',
-                    'That each attribute value must come from the specified data type domain',
-                    'That primary keys must be unique',
-                    'That no two tuples can have the same values'
-                ],
-                correct: 1,
-                explanation: 'Domain constraints specify that each attribute value must be atomic and come from the specified domain (data type). For example, if an attribute is defined as INTEGER, only integer values are allowed.',
+                correct: 2,
+                explanation: 'DELETE FROM removes rows. DROP TABLE removes the entire table. TRUNCATE removes all data but is faster. DELETE is more commonly used for removing specific or all rows.',
                 pastExam: false
+            },
+            {
+                type: 'mcq',
+                question: 'What is the purpose of the ORDER BY clause?',
+                options: [
+                    'Filter rows based on conditions',
+                    'Sort the result set by one or more columns',
+                    'Group rows by common values',
+                    'Join multiple tables'
+                ],
+                correct: 1,
+                explanation: 'ORDER BY sorts the result set in ascending (ASC) or descending (DESC) order based on specified column(s). Default is ascending.',
+                pastExam: false
+            },
+            {
+                type: 'mcq',
+                question: 'In SQL, what is the difference between COUNT(*) and COUNT(column_name)?',
+                options: [
+                    'They are identical and can be used interchangeably',
+                    'COUNT(*) counts all rows including NULL values; COUNT(column) counts non-NULL values in that column',
+                    'COUNT(*) is invalid syntax',
+                    'COUNT(*) is slower than COUNT(column)'
+                ],
+                correct: 1,
+                explanation: 'COUNT(*) counts all rows in a result set, including those with NULL values. COUNT(column) counts only non-NULL values in that specific column.',
+                pastExam: true
             },
             {
                 type: 'truefalse',
-                question: 'Entity Integrity constraint ensures that no primary key attribute can be null.',
+                question: 'In SQL, the WHERE clause can use aggregate functions like COUNT() or SUM().',
+                correct: false,
+                explanation: 'FALSE. The WHERE clause filters individual rows before aggregation. Aggregate conditions are applied AFTER grouping using the HAVING clause, not WHERE.',
+                pastExam: true
+            },
+            {
+                type: 'truefalse',
+                question: 'SQL is a declarative language, meaning you specify WHAT you want, not HOW to get it.',
                 correct: true,
-                explanation: 'TRUE. The Entity Integrity constraint requires all primary key attributes to have non-NULL values to ensure each tuple is uniquely identifiable.',
-                pastExam: true
-            },
-            {
-                type: 'truefalse',
-                question: 'In the relational model, the order of tuples in a relation is significant.',
-                correct: false,
-                explanation: 'FALSE. The relational model treats a relation as a SET of tuples, not a sequence. Row order is not meaningful. The only order that matters is the order of attribute definitions in the schema.',
-                pastExam: true
-            },
-            {
-                type: 'truefalse',
-                question: 'A relation can have multiple primary keys.',
-                correct: false,
-                explanation: 'FALSE. Each relation has exactly ONE primary key. However, a relation can have multiple CANDIDATE KEYS. One candidate key is chosen as the primary key; the others are called alternate keys.',
+                explanation: 'TRUE. SQL is declarative - you state the desired result without specifying the algorithm to retrieve it. The DBMS determines the execution plan.',
                 pastExam: false
             },
             {
                 type: 'truefalse',
-                question: 'The degree of a relation can change dynamically as new records are inserted.',
+                question: 'The ORDER BY clause must appear before the WHERE clause in a SELECT statement.',
                 correct: false,
-                explanation: 'FALSE. The degree (number of attributes) is fixed in the schema. Only cardinality (number of tuples) changes dynamically.',
+                explanation: 'FALSE. The correct order is: SELECT ... FROM ... WHERE ... ORDER BY. WHERE comes before ORDER BY in SQL syntax.',
+                pastExam: true
+            },
+            {
+                type: 'truefalse',
+                question: 'A JOIN operation in SQL combines rows from two or more tables based on a related column.',
+                correct: true,
+                explanation: 'TRUE. JOINs combine data from multiple tables using a join condition (usually matching primary and foreign keys).',
                 pastExam: false
             },
             {
                 type: 'shortanswer',
-                question: 'Define what a relation schema is and explain the difference between a relation schema and a relation instance.',
-                keywords: ['schema', 'definition', 'structure', 'attributes', 'data types', 'instance', 'data', 'tuples', 'moment', 'static', 'dynamic'],
-                modelAnswer: 'A relation schema is the logical description/definition of a relation, consisting of:\n- Relation name\n- Attribute names and their data types\n\nA relation instance is the actual data (tuples/rows) in the relation at a particular moment.\n\nKey differences:\n- Schema: Static (rarely changes), defines structure\n- Instance: Dynamic (changes with INSERT/UPDATE/DELETE), contains actual data',
-                explanation: 'Schema defines WHAT data can be stored; instance shows WHAT data IS currently stored.',
-                pastExam: false
-            },
-            {
-                type: 'shortanswer',
-                question: 'Explain the difference between a KEY and a SUPERKEY with an example.',
-                keywords: ['minimal', 'unique', 'superkey', 'key', 'removing', 'identify', 'example', 'candidate'],
-                modelAnswer: 'KEY: A minimal set of attributes that uniquely identifies tuples. Removing ANY attribute destroys uniqueness.\n\nSUPERKEY: Any set of attributes that uniquely identifies tuples, but may contain extra attributes.\n\nExample with Student relation:\nCandidate KEYS: {ID}, {Email}\nSUPERKEYS: {ID}, {Email}, {ID, Email}, {ID, Email, Name}\n\nEvery key IS a superkey, but not every superkey IS a key.',
-                explanation: 'Choose keys over superkeys for efficiency - smaller attribute sets mean faster lookups.',
+                question: 'Explain the difference between the DELETE statement and the TRUNCATE statement. When would you use each?',
+                keywords: ['delete', 'truncate', 'rows', 'remove', 'where', 'condition', 'faster', 'identity', 'log', 'recover'],
+                modelAnswer: 'DELETE:\n- Removes rows one by one\n- Can use WHERE clause for conditional deletion\n- Slower for large datasets\n- Can be rolled back (if in transaction)\n- Logs each deleted row\n\nTRUNCATE:\n- Removes all rows at once\n- Cannot use WHERE clause\n- Much faster\n- Uses minimal transaction log space\n- Resets identity seed (if auto-increment)\n\nUse DELETE when you need to delete specific rows or preserve identity values.\nUse TRUNCATE when you need to empty an entire table quickly.',
+                explanation: 'Both remove data but work differently - DELETE is row-by-row and flexible; TRUNCATE is bulk and fast.',
                 pastExam: true
             },
             {
                 type: 'shortanswer',
-                question: 'List and explain at least 4 characteristics that define a relation in the relational model.',
-                keywords: ['atomic', 'duplicate', 'unordered', 'domain', 'unique', 'tuple', 'values', 'indivisible', 'set'],
-                modelAnswer: '1. ATOMIC VALUES: All values must be indivisible (First Normal Form)\n\n2. NO DUPLICATE TUPLES: Each tuple is unique\n\n3. UNORDERED TUPLES: Tuples are treated as a SET, not a sequence\n\n4. UNORDERED ATTRIBUTES: Column order is not significant\n\n5. DOMAIN CONSTRAINT: Each attribute has a defined data type\n\n6. TUPLE UNIQUENESS: Every tuple is uniquely identifiable via primary key',
-                explanation: 'These characteristics form the foundation of the relational model.',
-                pastExam: false
+                question: 'What is the difference between INNER JOIN, LEFT JOIN, and RIGHT JOIN? Provide a brief explanation of when to use each.',
+                keywords: ['inner', 'left', 'right', 'join', 'match', 'matching', 'unmatched', 'null', 'all rows', 'left table', 'right table'],
+                modelAnswer: 'INNER JOIN:\n- Returns only rows where there is a match in BOTH tables\n- Excludes unmatched rows\n- Use when you need only matching records\n\nLEFT JOIN (LEFT OUTER JOIN):\n- Returns ALL rows from left table\n- Includes matching rows from right table\n- Unmatched right rows shown as NULL\n- Use when you want all records from the left table\n\nRIGHT JOIN (RIGHT OUTER JOIN):\n- Returns ALL rows from right table\n- Includes matching rows from left table\n- Unmatched left rows shown as NULL\n- Use when you want all records from the right table\n\nExample: LEFT JOIN keeps all employees even if not assigned to projects.',
+                explanation: 'JOINs determine which rows are preserved when combining tables.',
+                pastExam: true
             },
             {
                 type: 'shortanswer',
-                question: 'Explain Entity Integrity and Referential Integrity constraints and their importance.',
-                keywords: ['primary key', 'null', 'entity integrity', 'referential integrity', 'foreign key', 'relationship', 'valid', 'orphaned'],
-                modelAnswer: 'ENTITY INTEGRITY:\n- Primary key attributes cannot be NULL\n- Ensures each tuple is uniquely identifiable\n\nREFERENTIAL INTEGRITY:\n- Foreign key values must match existing primary key values or be NULL\n- Prevents orphaned records\n\nIMPORTANCE:\n- Entity Integrity: Guarantees tuple identity\n- Referential Integrity: Maintains consistency between tables',
-                explanation: 'These constraints prevent invalid and inconsistent data.',
+                question: 'Explain what the GROUP BY clause does and why it is used with aggregate functions.',
+                keywords: ['group', 'grouping', 'aggregate', 'summary', 'categories', 'division', 'having', 'sum', 'count', 'average'],
+                modelAnswer: 'GROUP BY groups rows with identical values in specified column(s).\n\nPurpose:\n- Divide data into meaningful categories\n- Apply aggregate functions (COUNT, SUM, AVG, MAX, MIN) to each group\n- Generate summary reports\n\nExample: GROUP BY department calculates total salary per department.\n\nKey points:\n- Non-grouped columns in SELECT must use aggregate functions\n- Filters applied after grouping use HAVING (not WHERE)\n- NULL values form their own group',
+                explanation: 'GROUP BY enables aggregate analysis at category level rather than row level.',
+                pastExam: false
+            },
+            {
+                type: 'problem',
+                question: 'Write a SQL query for this requirement: From the EMPLOYEE table, retrieve the employee ID, name, and salary for all employees in the IT department with salary greater than 60000. Order the results by salary in descending order.',
+                keywords: ['select', 'employee', 'id', 'name', 'salary', 'from', 'where', 'department', 'it', 'greater than', '60000', 'order by', 'desc'],
+                modelAnswer: 'SELECT EmployeeID, Name, Salary\nFROM EMPLOYEE\nWHERE Department = \'IT\' AND Salary > 60000\nORDER BY Salary DESC;',
+                explanation: 'The query uses SELECT for columns, FROM for the table, WHERE for filtering conditions (both department and salary), and ORDER BY DESC for descending salary order.',
+                pastExam: false
+            },
+            {
+                type: 'problem',
+                question: 'Write a SQL query to find the total number of employees in each department, showing department name and employee count. Only include departments with more than 5 employees.',
+                keywords: ['select', 'count', 'from', 'employee', 'join', 'department', 'group by', 'having', 'department', 'count', 'greater than', '5'],
+                modelAnswer: 'SELECT d.DepartmentName, COUNT(e.EmployeeID) AS EmployeeCount\nFROM DEPARTMENT d\nLEFT JOIN EMPLOYEE e ON d.DepartmentID = e.DepartmentID\nGROUP BY d.DepartmentName\nHAVING COUNT(e.EmployeeID) > 5;',
+                explanation: 'Uses COUNT(*) with GROUP BY for aggregation, HAVING for filtering groups, and JOIN to connect department and employee tables.',
                 pastExam: true
             },
             {
                 type: 'problem',
-                question: 'Given the CAR relation: CAR(State, Reg#, SerialNo, Make, Model, Year)\n\nData:\n| State | Reg# | SerialNo | Make  | Model |\n| TX    | 1234 | ABC123   | Ford  | Focus |\n| CA    | 5678 | XYZ789   | Honda | Civic |\n\nIdentify: (a) All candidate keys, (b) List 3 superkeys, (c) Choose and justify a primary key.',
-                keywords: ['State, Reg', 'SerialNo', 'candidate', 'unique', 'superkey', 'primary', 'minimal', 'combination'],
-                modelAnswer: '(a) CANDIDATE KEYS:\n- {State, Reg#}\n- {SerialNo}\n\n(b) SUPERKEYS:\n1. {SerialNo}\n2. {State, Reg#}\n3. {State, Reg#, SerialNo}\n4. {SerialNo, Make}\n\n(c) PRIMARY KEY: {SerialNo}\n\nJustification: Single attribute, smaller than {State, Reg#}, faster lookups, globally unique like VIN.',
-                explanation: 'Choose the smallest candidate key for efficiency.',
+                question: 'Write a SQL query to retrieve all customers who placed at least one order with a total amount exceeding $500.',
+                keywords: ['select', 'customer', 'from', 'where', 'order', 'amount', 'greater than', '500', 'join', 'distinct', 'having'],
+                modelAnswer: 'SELECT DISTINCT c.CustomerID, c.CustomerName\nFROM CUSTOMER c\nJOIN ORDER o ON c.CustomerID = o.CustomerID\nWHERE o.OrderAmount > 500;',
+                explanation: 'Uses DISTINCT to avoid duplicates when a customer has multiple qualifying orders. WHERE filters by order amount. JOIN connects customer and order tables.',
+                pastExam: false
+            },
+            {
+                type: 'mcq',
+                question: 'What does a NULL value represent in SQL?',
+                options: [
+                    'A zero value',
+                    'An empty string',
+                    'Unknown, missing, or inapplicable data',
+                    'A false boolean value'
+                ],
+                correct: 2,
+                explanation: 'NULL represents data that is unknown, missing, unavailable, or not applicable. It is NOT the same as zero, empty string, or false. NULL comparisons use IS NULL or IS NOT NULL.',
+                pastExam: false
+            },
+            {
+                type: 'mcq',
+                question: 'In SQL, how do you compare values with NULL?',
+                options: [
+                    'column = NULL',
+                    'column <> NULL',
+                    'column IS NULL',
+                    'column EQUALS NULL'
+                ],
+                correct: 2,
+                explanation: 'Use IS NULL or IS NOT NULL to check for NULL values. The = and <> operators don\'t work with NULL because NULL comparisons always return unknown, not true or false.',
                 pastExam: true
             },
             {
-                type: 'problem',
-                question: 'Given schema:\nEMPLOYEE(SSN, Name, Salary, DeptNo)\nDEPARTMENT(DeptNo, DeptName, Location)\n\nIdentify: (a) Primary keys, (b) Foreign keys, (c) Explain referential integrity here.',
-                keywords: ['SSN', 'DeptNo', 'primary key', 'foreign key', 'referential integrity', 'references', 'match', 'exists'],
-                modelAnswer: '(a) PRIMARY KEYS:\n- EMPLOYEE.SSN\n- DEPARTMENT.DeptNo\n\n(b) FOREIGN KEY:\n- EMPLOYEE.DeptNo → DEPARTMENT.DeptNo\n\n(c) REFERENTIAL INTEGRITY:\nEvery DeptNo in EMPLOYEE must either:\n- Match an existing DeptNo in DEPARTMENT, OR\n- Be NULL\n\nPrevents assigning employees to non-existent departments.',
-                explanation: 'Foreign keys maintain relationships and data consistency across tables.',
+                type: 'mcq',
+                question: 'Which aggregate function returns the highest value in a column?',
+                options: [
+                    'HIGH()',
+                    'MAXIMUM()',
+                    'MAX()',
+                    'LARGEST()'
+                ],
+                correct: 2,
+                explanation: 'The MAX() function returns the maximum/highest value. Similarly, MIN() returns the minimum/lowest value in a column.',
+                pastExam: false
+            },
+            {
+                type: 'mcq',
+                question: 'What does the LIKE operator do in SQL?',
+                options: [
+                    'Checks if two values are equal',
+                    'Performs pattern matching in text searches',
+                    'Joins multiple tables',
+                    'Sorts data alphabetically'
+                ],
+                correct: 1,
+                explanation: 'LIKE is used for pattern matching. It uses wildcards: % (zero or more characters) and _ (single character). Example: WHERE name LIKE \'A%\' finds names starting with A.',
                 pastExam: false
             }
         ];
@@ -870,13 +901,13 @@
 
             let message = '';
             if (percentage === 100) {
-                message = 'Perfect score! You have mastered Chapter 4! 🎯';
+                message = 'Perfect score! You have mastered Basic SQL! 🎯';
             } else if (percentage >= 80) {
-                message = 'Excellent work! You have a strong understanding of the Relational Model. 🌟';
+                message = 'Excellent work! You have a strong understanding of SQL fundamentals. 🌟';
             } else if (percentage >= 60) {
                 message = 'Good job! Review the concepts you missed to solidify your understanding. 📚';
             } else {
-                message = 'Keep studying! Focus on the key concepts and take the exam again. 💪';
+                message = 'Keep studying! Focus on SQL syntax and continue practicing. 💪';
             }
 
             document.getElementById('resultMessage').textContent = message;
@@ -898,8 +929,8 @@
                 reviewDiv.className = 'review-question';
 
                 let reviewHTML = `
-                    <div class="review-title">Question ${result.questionIdx + 1}: ${q.type === 'mcq' ? 'Multiple Choice' : q.type === 'truefalse' ? 'True/False' : 'Short Answer'}</div>
-                    <div style="margin: 10px 0; color: #666; font-size: 0.95em;">${q.question}</div>
+                    <div class="review-title">Question ${result.questionIdx + 1}: ${q.type === 'mcq' ? 'Multiple Choice' : q.type === 'truefalse' ? 'True/False' : 'SQL Query'}</div>
+                    <div style="margin: 10px 0; color: #666; font-size: 0.95em; white-space: pre-wrap;">${q.question}</div>
                 `;
 
                 if (q.type === 'mcq' || q.type === 'truefalse') {
@@ -933,7 +964,7 @@
 
                 reviewHTML += `
                     <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e5e7eb;">
-                        <div style="font-size: 0.95em; line-height: 1.6;">${q.explanation}</div>
+                        <div style="font-size: 0.95em; line-height: 1.6;"><strong>Explanation:</strong> ${q.explanation}</div>
                     </div>
                 `;
 
