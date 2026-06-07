@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-sg-styled="true">
+<html lang="en" data-sg-styled="true">
 
 <head>
     <link rel="icon" type="image/png" href="/assets/favicon.png?v=2">
@@ -7,9 +7,9 @@
     <link rel="apple-touch-icon" href="/assets/favicon.png?v=2">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جامعة الأمير سلطان · مخطط مسار هندسة برمجيات وأمن سيبراني</title>
+    <title>PSU · SE-AI Degree Planner</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap"
         rel="stylesheet">
     <style>
         :root {
@@ -45,8 +45,8 @@
 
             --radius: 16px;
             --card-radius: 12px;
-            --font: 'Tajawal', 'Nunito', sans-serif;
-            --font2: 'Tajawal', 'Nunito Sans', sans-serif;
+            --font: 'Nunito', sans-serif;
+            --font2: 'Nunito Sans', sans-serif;
 
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.07);
             --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.10);
@@ -101,7 +101,7 @@
             transition: background 0.3s, color 0.3s;
         }
 
-        /* خلفية قصاصات ملونة */
+        /* ── CONFETTI DOTS background ── */
         body::before {
             content: '';
             position: fixed;
@@ -127,7 +127,7 @@
             padding: 24px 20px 80px;
         }
 
-        /* الشريط العلوي */
+        /* ── TOP BAR ── */
         .topbar {
             display: flex;
             align-items: center;
@@ -171,7 +171,7 @@
             padding: 3px 10px;
             border-radius: 100px;
             vertical-align: middle;
-            margin-right: 4px;
+            margin-left: 4px;
         }
 
         .topbar-right {
@@ -181,7 +181,7 @@
             align-items: center;
         }
 
-        /* أزرار جريئة */
+        /* ── CHUNKY BUTTONS ── */
         .btn {
             font-family: var(--font);
             font-weight: 800;
@@ -226,7 +226,7 @@
             box-shadow: 0 3px 0 var(--ink3);
         }
 
-        /* شريط التقدم */
+        /* ── PROGRESS HERO ── */
         .hero {
             background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 50%, #34d399 100%);
             border-radius: var(--radius);
@@ -241,7 +241,7 @@
         .hero::after {
             content: '🎓';
             position: absolute;
-            left: 24px;
+            right: 24px;
             top: 50%;
             transform: translateY(-50%);
             font-size: 80px;
@@ -316,16 +316,16 @@
 
         .hero-pct {
             position: absolute;
-            left: 0;
+            right: 0;
             top: 50%;
             transform: translate(0, -50%);
             font-size: 11px;
             font-weight: 800;
             color: rgba(255, 255, 255, 0.9);
-            padding-left: 4px;
+            padding-right: 4px;
         }
 
-        /* مجموعات الاختيار */
+        /* ── CHOICE GROUPS ── */
         .choice-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -395,7 +395,7 @@
             color: var(--ink);
         }
 
-        /* عناصر التحكم */
+        /* ── CONTROLS ── */
         .controls {
             display: flex;
             gap: 10px;
@@ -412,7 +412,7 @@
 
         .search-wrap input {
             width: 100%;
-            padding: 10px 38px 10px 14px;
+            padding: 10px 14px 10px 38px;
             border-radius: 12px;
             border: 2.5px solid var(--bg2);
             background: var(--bg2);
@@ -435,7 +435,7 @@
 
         .search-icon {
             position: absolute;
-            right: 12px;
+            left: 12px;
             top: 50%;
             transform: translateY(-50%);
             font-size: 16px;
@@ -470,7 +470,7 @@
             border-color: var(--ink3);
         }
 
-        /* لوحة كانبان */
+        /* ── KANBAN BOARD ── */
         .board {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -490,7 +490,7 @@
             }
         }
 
-        /* الأعمدة */
+        /* ── COLUMN ── */
         .col {
             border-radius: var(--radius);
             overflow: hidden;
@@ -589,7 +589,7 @@
             gap: 8px;
         }
 
-        /* بطاقة المقرر */
+        /* ── COURSE CARD ── */
         .c-card {
             background: var(--card-lock);
             border-radius: var(--card-radius);
@@ -634,12 +634,12 @@
             background: rgba(251, 191, 36, 0.08) !important;
         }
 
-        /* علامة الإكمال */
+        /* Completion ribbon */
         .c-card.is-done::after {
             content: '✓';
             position: absolute;
             top: 8px;
-            left: 10px;
+            right: 10px;
             font-size: 18px;
             font-weight: 900;
             color: var(--done-ink);
@@ -725,7 +725,7 @@
             transform: scale(1.05);
         }
 
-        /* شارة المجموعة */
+        /* ── GROUP BADGE on card ── */
         .c-group-tag {
             font-size: 9px;
             font-weight: 900;
@@ -735,10 +735,10 @@
             border-radius: 5px;
             background: linear-gradient(135deg, #a78bfa33, #60a5fa33);
             color: var(--lock-ink);
-            margin-right: 4px;
+            margin-left: 4px;
         }
 
-        /* نقطة المستوى */
+        /* ── LEVEL TAG on card ── */
         .c-level-dot {
             width: 6px;
             height: 6px;
@@ -763,7 +763,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* الحالة الفارغة للعمود */
+        /* Column empty state */
         .col-empty {
             text-align: center;
             padding: 28px 16px;
@@ -778,7 +778,7 @@
             display: block;
         }
 
-        /* طبقة الاحتفال */
+        /* ── CELEBRATION overlay ── */
         .celebrate {
             position: fixed;
             top: 0;
@@ -811,7 +811,7 @@
             }
         }
 
-        /* الإشعارات */
+        /* ── TOAST ── */
         #toast-root {
             position: fixed;
             bottom: 28px;
@@ -860,7 +860,7 @@
             }
         }
 
-        /* النافذة المنبثقة */
+        /* ── MODAL ── */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -951,7 +951,7 @@
             background: rgba(248, 113, 113, 0.1);
             border-radius: 8px;
             color: #dc2626;
-            border-right: 3px solid #f87171;
+            border-left: 3px solid #f87171;
         }
 
         .modal-actions {
@@ -960,7 +960,7 @@
             justify-content: flex-end;
         }
 
-        /* ألوان نقاط المستوى */
+        /* Level dot colors */
         .lvl1 {
             background: #f472b6;
         }
@@ -1007,64 +1007,64 @@
     <script src="/javascripts/html-theme-sync.js"></script>
     <script src="/javascripts/translation-launch-guard.js"></script>
 
-    <meta name="description" content="لا يمكن التراجع عن هذا الإجراء بسهولة">
-    <link rel="canonical" href="https://shoug-tech.com/academic-plan-themes/stacks-ar.html">
-    <meta property="og:title" content="جامعة الأمير سلطان · مخطط مسار هندسة برمجيات وأمن سيبراني">
-    <meta property="og:description" content="لا يمكن التراجع عن هذا الإجراء بسهولة">
-    <meta property="og:url" content="https://shoug-tech.com/academic-plan-themes/stacks-ar.html">
+    <meta name="description" content="This action cannot be undone easily">
+    <link rel="canonical" href="https://shoug-tech.com/academic-plan-themes/se-ai/stacks.html">
+    <meta property="og:title" content="PSU · SE-AI Degree Planner">
+    <meta property="og:description" content="This action cannot be undone easily">
+    <meta property="og:url" content="https://shoug-tech.com/academic-plan-themes/se-ai/stacks.html">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://shoug-tech.com/assets/og-banner.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="جامعة الأمير سلطان · مخطط مسار هندسة برمجيات وأمن سيبراني">
-    <meta name="twitter:description" content="لا يمكن التراجع عن هذا الإجراء بسهولة">
+    <meta name="twitter:title" content="PSU · SE-AI Degree Planner">
+    <meta name="twitter:description" content="This action cannot be undone easily">
     <meta name="twitter:image" content="https://shoug-tech.com/assets/og-banner.png">
     <script
-        type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://shoug-tech.com/academic-plan-themes/stacks-ar.html","name":"جامعة الأمير سلطان · مخطط مسار هندسة برمجيات وأمن سيبراني","description":"لا يمكن التراجع عن هذا الإجراء بسهولة","isPartOf":{"@type":"WebSite","name":"Shoug's Digital Garden","url":"https://shoug-tech.com/"}}</script>
+        type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://shoug-tech.com/academic-plan-themes/se-ai/stacks.html","name":"PSU · SE-AI Degree Planner","description":"This action cannot be undone easily","isPartOf":{"@type":"WebSite","name":"Shoug's Digital Garden","url":"https://shoug-tech.com/"}}</script>
 
-    <link rel="alternate" hreflang="en" href="https://shoug-tech.com/academic-plan-themes/stacks-ar.html">
-    <link rel="alternate" hreflang="ar" href="https://shoug-tech.com/ar/academic-plan-themes/stacks-ar.html">
-    <link rel="alternate" hreflang="x-default" href="https://shoug-tech.com/academic-plan-themes/stacks-ar.html">
+    <link rel="alternate" hreflang="en" href="https://shoug-tech.com/academic-plan-themes/se-ai/stacks.html">
+    <link rel="alternate" hreflang="ar" href="https://shoug-tech.com/ar/academic-plan-themes/se-ai/stacks.html">
+    <link rel="alternate" hreflang="x-default" href="https://shoug-tech.com/academic-plan-themes/se-ai/stacks.html">
 </head>
 
 <body>
 
     <div class="app">
 
-        <!-- الشريط العلوي -->
+        <!-- TOP BAR -->
         <div class="topbar">
             <div class="logo">
-                <span class="logo-tag">جامعة الأمير سلطان · كلية علوم الحاسب والمعلومات</span>
+                <span class="logo-tag">Prince Sultan University · CCIS</span>
                 <div class="logo-title">
-                    مخطط مساري الدراسي
-                    <span class="logo-pill">هندسة برمجيات - أمن سيبراني</span>
+                    My Degree Plan
+                    <span class="logo-pill">SE-AI</span>
                 </div>
             </div>
             <div class="topbar-right">
-                <button class="btn btn-green" id="mark13Btn">⚡ إكمال المستويات 1-3</button>
-                <button class="btn btn-purple" id="markAllBtn">🎉 إكمال الكل</button>
-                <button class="btn btn-red" id="resetBtn">↺ إعادة تعيين</button>
+                <button class="btn btn-green" id="mark13Btn">⚡ L1 - 3 Done</button>
+                <button class="btn btn-purple" id="markAllBtn">🎉 All Done</button>
+                <button class="btn btn-red" id="resetBtn">↺ Reset</button>
                 <button class="btn btn-ghost" id="themeBtn">◐</button>
             </div>
         </div>
 
-        <!-- شريط التقدم -->
+        <!-- HERO PROGRESS -->
         <div class="hero">
             <div class="hero-grid">
                 <div class="hero-stat">
                     <div class="hero-val" id="heroHours">0</div>
-                    <div class="hero-label">الساعات المنجزة</div>
+                    <div class="hero-label">Hours Done</div>
                 </div>
                 <div class="hero-stat">
                     <div class="hero-val" id="heroTotal"> - </div>
-                    <div class="hero-label">إجمالي الساعات</div>
+                    <div class="hero-label">Total Hours</div>
                 </div>
                 <div class="hero-stat">
                     <div class="hero-val" id="heroCourses">0</div>
-                    <div class="hero-label">المقررات المنجزة</div>
+                    <div class="hero-label">Courses Done</div>
                 </div>
                 <div class="hero-stat">
                     <div class="hero-val" id="heroRemain"> - </div>
-                    <div class="hero-label">الساعات المتبقية</div>
+                    <div class="hero-label">Hours Left</div>
                 </div>
             </div>
             <div style="position:relative;">
@@ -1075,50 +1075,27 @@
             </div>
         </div>
 
-        <!-- مجموعات الاختيار -->
-        <div class="choice-row">
-            <div class="choice-card">
-                <div class="choice-card-head">
-                    <span class="choice-badge">المجموعة أ</span>
-                    <span>اختر مقرر الرياضيات الاختياري</span>
-                </div>
-                <div class="choice-opts">
-                    <button class="choice-opt selected" data-group="A" data-val="MATH223">MATH223 · جبر خطي</button>
-                    <button class="choice-opt" data-group="A" data-val="CS223">CS223 · جبر خطي حسابي</button>
-                </div>
-            </div>
-            <div class="choice-card">
-                <div class="choice-card-head">
-                    <span class="choice-badge">المجموعة ب</span>
-                    <span>اختر مقرر الأمن السيبراني الاختياري</span>
-                </div>
-                <div class="choice-opts">
-                    <button class="choice-opt selected" data-group="B" data-val="CYS406">CYS406 · أمن البيانات
-                        والشبكات</button>
-                    <button class="choice-opt" data-group="B" data-val="CYS404">CYS404 · أمن الأنظمة
-                        السيبرانية-الفيزيائية</button>
-                </div>
-            </div>
-        </div>
+        <!-- CHOICE GROUPS -->
+        <div class="choice-row" id="choiceRow"></div>
 
-        <!-- عناصر التحكم -->
+        <!-- CONTROLS -->
         <div class="controls">
             <div class="search-wrap">
                 <span class="search-icon">🔍</span>
-                <input type="text" id="searchInput" placeholder="ابحث برمز أو اسم المقرر…">
+                <input type="text" id="searchInput" placeholder="Search by code or name…">
             </div>
             <div class="level-filter" id="levelFilter">
-                <button class="lf-btn active" data-level="all">جميع المستويات</button>
+                <button class="lf-btn active" data-level="all">All Levels</button>
             </div>
         </div>
 
-        <!-- لوحة كانبان -->
+        <!-- KANBAN BOARD -->
         <div class="board">
             <div class="col col-locked">
                 <div class="col-header">
                     <div class="col-title">
                         <span class="col-icon">🔒</span>
-                        <span class="col-label">مقفلة</span>
+                        <span class="col-label">Locked</span>
                     </div>
                     <span class="col-count" id="countLocked">0</span>
                 </div>
@@ -1128,7 +1105,7 @@
                 <div class="col-header">
                     <div class="col-title">
                         <span class="col-icon">✨</span>
-                        <span class="col-label">متاحة</span>
+                        <span class="col-label">Available</span>
                     </div>
                     <span class="col-count" id="countAvail">0</span>
                 </div>
@@ -1138,7 +1115,7 @@
                 <div class="col-header">
                     <div class="col-title">
                         <span class="col-icon">🏆</span>
-                        <span class="col-label">مكتملة</span>
+                        <span class="col-label">Completed</span>
                     </div>
                     <span class="col-count" id="countDone">0</span>
                 </div>
@@ -1152,86 +1129,152 @@
 
     <script>
         const COURSES_RAW = [
-            { id: 'ARAB101', name: 'تعبير عربي', hours: 2, level: 1, prereqs: [] },
-            { id: 'ENG101', name: 'كتابة مكثفة', hours: 3, level: 1, prereqs: [] },
-            { id: 'ISC101', name: 'أخلاق إسلامية', hours: 2, level: 1, prereqs: [] },
-            { id: 'CS101', name: 'برمجة حاسوب 1', hours: 4, level: 1, prereqs: [] },
-            { id: 'MATH111', name: 'تفاضل وتكامل 1', hours: 3, level: 1, prereqs: [] },
-            { id: 'CHM101', name: 'كيمياء عامة', hours: 4, level: 1, prereqs: [] },
-            { id: 'CS102', name: 'برمجة حاسوب 2', hours: 3, level: 2, prereqs: ['CS101'] },
-            { id: 'CS175', name: 'منطق رقمي وتنظيم حاسوب', hours: 3, level: 2, prereqs: ['CS101'] },
-            { id: 'ENG103', name: 'تقنيات الكتابة البحثية', hours: 3, level: 2, prereqs: ['ENG101'] },
-            { id: 'STAT101', name: 'مقدمة في الإحصاء والاحتمالات', hours: 3, level: 2, prereqs: ['MATH111'] },
-            { id: 'MATH113', name: 'تفاضل وتكامل 2', hours: 3, level: 2, prereqs: ['MATH111'] },
-            { id: 'ISC103', name: 'النظام الاقتصادي الإسلامي', hours: 2, level: 2, prereqs: [] },
-            { id: 'SE201', name: 'مقدمة في هندسة البرمجيات', hours: 3, level: 3, prereqs: ['CS102', 'ENG103'] },
-            { id: 'PHY105', name: 'فيزياء 1', hours: 4, level: 3, prereqs: [] },
-            { id: 'CS285', name: 'رياضيات متقطعة للحوسبة', hours: 3, level: 3, prereqs: ['CS101'] },
-            { id: 'CS210', name: 'هياكل بيانات وخوارزميات', hours: 3, level: 3, prereqs: ['CS102'] },
-            { id: 'ISC105', name: 'علوم القرآن الكريم', hours: 2, level: 3, prereqs: [] },
-            { id: 'COM201', name: 'مهارات تواصل', hours: 3, level: 3, prereqs: [] },
-            { id: 'SE365', name: 'تفاعل إنسان-حاسوب', hours: 3, level: 4, prereqs: ['CS210'] },
-            { id: 'SE311', name: 'هندسة متطلبات البرمجيات', hours: 3, level: 4, prereqs: ['SE201'] },
-            { id: 'PHY205', name: 'فيزياء 2', hours: 4, level: 4, prereqs: ['PHY105'] },
-            { id: 'CS330', name: 'مقدمة في أنظمة التشغيل', hours: 3, level: 4, prereqs: ['CS175', 'CS210'] },
-            { id: 'PSY101', name: 'مقدمة في علم النفس', hours: 3, level: 4, prereqs: [] },
-            { id: 'SE322', name: 'تصميم ومعمارية البرمجيات', hours: 3, level: 5, prereqs: ['SE311'] },
-            { id: 'CYS401', name: 'أساسيات الأمن السيبراني', hours: 3, level: 5, prereqs: [] },
-            { id: 'CS340', name: 'مقدمة في قواعد البيانات', hours: 3, level: 5, prereqs: ['CS210'] },
-            { id: 'CS331', name: 'اتصالات بيانات وشبكات حاسوب', hours: 3, level: 5, prereqs: ['CS175', 'CS210'] },
-            { id: 'ISC203', name: 'المعاملات المالية المعاصرة', hours: 2, level: 5, prereqs: [] },
-            { id: 'ARAB103', name: 'كتابة مهنية وأدبية', hours: 2, level: 5, prereqs: [] },
-            { id: 'CYS403', name: 'مخاطر الأمن السيبراني والحوكمة والامتثال', hours: 3, level: 6, prereqs: ['CYS401'] },
-            { id: 'CYS402', name: 'تطوير برمجيات آمنة', hours: 3, level: 6, prereqs: ['CYS401'] },
-            { id: 'SE401', name: 'اختبار وضمان جودة البرمجيات', hours: 3, level: 6, prereqs: ['SE322'] },
-            { id: 'SE371', name: 'هندسة الويب', hours: 3, level: 6, prereqs: ['CS210'] },
-            { id: 'MATH221', name: 'تحليل عددي', hours: 3, level: 6, prereqs: ['MATH113'] },
-            { id: 'ETHC303', name: 'الجوانب الأخلاقية والاجتماعية للحوسبة', hours: 3, level: 6, prereqs: [] },
-            { id: 'CYS405', name: 'اختبار الاختراق والقرصنة الأخلاقية', hours: 3, level: 7, prereqs: ['CS331', 'CYS401'] },
-            { id: 'SE499', name: 'مشروع التخرج', hours: 3, level: 7, prereqs: [] },
-            { id: 'SE423', name: 'إدارة مشاريع هندسة البرمجيات', hours: 3, level: 7, prereqs: [] },
-            { id: 'SE411', name: 'بناء البرمجيات', hours: 3, level: 7, prereqs: ['SE401'] },
-            { id: 'ARAB203', name: 'قواعد اللغة العربية', hours: 2, level: 7, prereqs: [] },
-            { id: 'SE492', name: 'تدريب تعاوني', hours: 10, level: 8, prereqs: [] },
-            { id: 'MATH223', name: 'جبر خطي', hours: 3, level: 6, prereqs: ['MATH113'], group: 'A' },
-            { id: 'CS223', name: 'جبر خطي حسابي', hours: 3, level: 6, prereqs: ['MATH113'], group: 'A' },
-            { id: 'CYS406', name: 'أمن البيانات والشبكات', hours: 3, level: 7, prereqs: ['CS331', 'CYS401'], group: 'B' },
-            { id: 'CYS404', name: 'أمن الأنظمة السيبرانية-الفيزيائية', hours: 3, level: 7, prereqs: ['CS331', 'CYS401'], group: 'B' },
+            // Level 1
+            { id: 'ARAB101', name: 'Arabic Writing', hours: 2, level: 1, prereqs: [] },
+            { id: 'ENG101', name: 'Intensive Writing', hours: 3, level: 1, prereqs: [] },
+            { id: 'ISC101', name: 'Islamic Ethics', hours: 2, level: 1, prereqs: [] },
+            { id: 'CS101', name: 'Computer Programming I', hours: 4, level: 1, prereqs: [] },
+            { id: 'MATH111', name: 'Calculus I', hours: 3, level: 1, prereqs: [] },
+            { id: 'CHM101', name: 'General Chemistry', hours: 4, level: 1, prereqs: [] },
+            // Level 2
+            { id: 'CS102', name: 'Computer Programming II', hours: 3, level: 2, prereqs: ['CS101'] },
+            { id: 'CS175', name: 'Digital Logic & Computer Organization', hours: 3, level: 2, prereqs: ['CS101'] },
+            { id: 'ENG103', name: 'Research Writing Techniques', hours: 3, level: 2, prereqs: ['ENG101'] },
+            { id: 'STAT101', name: 'Introduction to Statistics & Probability', hours: 3, level: 2, prereqs: ['MATH111'] },
+            { id: 'MATH113', name: 'Calculus II', hours: 3, level: 2, prereqs: ['MATH111'] },
+            { id: 'ISC103', name: 'Islamic Economic System', hours: 2, level: 2, prereqs: [] },
+            // Level 3
+            { id: 'SE201', name: 'Introduction to Software Engineering', hours: 3, level: 3, prereqs: ['CS102', 'ENG103'] },
+            { id: 'PHY105', name: 'Physics I', hours: 4, level: 3, prereqs: [] },
+            { id: 'CS285', name: 'Discrete Math for Computing', hours: 3, level: 3, prereqs: ['CS101'] },
+            { id: 'CS210', name: 'Data Structures & Algorithms', hours: 3, level: 3, prereqs: ['CS102'] },
+            { id: 'ISC105', name: 'Holy Quran Sciences', hours: 2, level: 3, prereqs: [] },
+            { id: 'COM201', name: 'Communication Skills', hours: 3, level: 3, prereqs: [] },
+            // Level 4
+            { id: 'SE365', name: 'Human - Computer Interaction', hours: 3, level: 4, prereqs: ['CS210'] },
+            { id: 'SE311', name: 'Software Requirements Engineering', hours: 3, level: 4, prereqs: ['SE201'] },
+            { id: 'PHY205', name: 'Physics II', hours: 4, level: 4, prereqs: ['PHY105'] },
+            { id: 'CS330', name: 'Introduction to Operating Systems', hours: 3, level: 4, prereqs: ['CS175', 'CS210'] },
+            { id: 'PSY101', name: 'Introduction to Psychology', hours: 3, level: 4, prereqs: [] },
+            // Level 5
+            { id: 'SE322', name: 'Software Design & Architecture', hours: 3, level: 5, prereqs: ['SE311'] },
+            { id: 'CYS401', name: 'Fundamentals of Cybersecurity', hours: 3, level: 5, prereqs: [] },
+            { id: 'CS340', name: 'Introduction to Database Systems', hours: 3, level: 5, prereqs: ['CS210'] },
+            { id: 'CS331', name: 'Data Communications & Computer Networks', hours: 3, level: 5, prereqs: ['CS175', 'CS210'] },
+            { id: 'ISC203', name: 'Contemporary Financial Transactions', hours: 2, level: 5, prereqs: [] },
+            { id: 'ARAB103', name: 'Professional & Literary Writing', hours: 2, level: 5, prereqs: [] },
+            // Level 6
+            { id: 'CS316', name: 'Introduction to AI and Data Science', hours: 3, level: 6, prereqs: ['CS210'] },
+            { id: 'CS465', name: 'Machine Learning', hours: 3, level: 6, prereqs: ['STAT101'] },
+            { id: 'SE401', name: 'Software Testing & Quality Assurance', hours: 3, level: 6, prereqs: ['SE322'] },
+            { id: 'SE371', name: 'Web Engineering', hours: 3, level: 6, prereqs: ['CS210'] },
+            { id: 'MATH221', name: 'Numerical Analysis', hours: 3, level: 6, prereqs: ['MATH113'] },
+            { id: 'ETHC303', name: 'Ethical & Social Aspects of Computing', hours: 3, level: 6, prereqs: [] },
+            // Level 7
+            { id: 'SE499', name: 'Senior Project', hours: 3, level: 7, prereqs: [] },
+            { id: 'SE423', name: 'Software Engineering Project Management', hours: 3, level: 7, prereqs: [] },
+            { id: 'SE411', name: 'Software Construction', hours: 3, level: 7, prereqs: ['SE401'] },
+            { id: 'ARAB203', name: 'Arabic Grammar', hours: 2, level: 7, prereqs: [] },
+            // Level 8
+            { id: 'SE492', name: 'Cooperative Training', hours: 10, level: 8, prereqs: [] },
+            // Level 6
+            { id: 'MATH223', name: 'Linear Algebra', hours: 3, level: 6, prereqs: ['MATH113'], group: 'A' },
+            { id: 'CS223', name: 'Computational Linear Algebra', hours: 3, level: 6, prereqs: ['MATH113'], group: 'A' },
+            // Level 7
+            { id: 'CS496', name: 'Emerging Topics in AI and Data Science', hours: 3, level: 7, prereqs: ['CS316'], group: 'B' },
+            { id: 'BCE483', name: 'Business Intelligence and Analytics', hours: 3, level: 7, prereqs: ['CS316'], group: 'B' },
+            { id: 'CS469', name: 'Digital Image Processing', hours: 3, level: 7, prereqs: ['CS316'], group: 'B' },
+            { id: 'CS471', name: 'Data Mining', hours: 3, level: 7, prereqs: ['CS316'], group: 'B' },
+            { id: 'CS476', name: 'Natural Language Processing', hours: 3, level: 7, prereqs: ['CS316'], group: 'B' },
+            { id: 'CS481', name: 'Big Data Analytics', hours: 3, level: 7, prereqs: ['CS316'], group: 'B' },
+            { id: 'IS446', name: 'Knowledge Discovery and Data Mining', hours: 3, level: 7, prereqs: ['CS316'], group: 'B' },
+            { id: 'IS463', name: 'Applied Data Science', hours: 3, level: 7, prereqs: ['CS316'], group: 'B' },
+            { id: 'IS472', name: 'Decision-support and Intelligent Systems', hours: 3, level: 7, prereqs: ['CS316'], group: 'B' },
+            // Level 1
+            { id: 'HPE101', name: 'Health & Physical Education I', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'HPE102', name: 'Health & Physical Education II', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE101', name: 'Beginner Badminton', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE103', name: 'Beginner Basketball', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE105', name: 'Beginner Gymnastics', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE107', name: 'Beginner Handball', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE109', name: 'Beginner Soccer', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE111', name: 'Beginner Squash', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE113', name: 'Beginner Swimming', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE115', name: 'Beginner Table Tennis', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE117', name: 'Beginner Tennis', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE119', name: 'Beginner Volleyball', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE121', name: 'Beginner Weight Training', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE201', name: 'Intermediate Badminton', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE203', name: 'Intermediate Basketball', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE205', name: 'Intermediate Gymnastics', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE207', name: 'Intermediate Handball', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE209', name: 'Intermediate Soccer', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE211', name: 'Intermediate Squash', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE213', name: 'Intermediate Swimming', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE215', name: 'Intermediate Table Tennis', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE217', name: 'Intermediate Tennis', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE219', name: 'Intermediate Volleyball', hours: 1, level: 1, prereqs: [], group: 'C' },
+            { id: 'PE221', name: 'Intermediate Weight Training', hours: 1, level: 1, prereqs: [], group: 'C' },
         ];
 
         let completed = new Set();
-        let choices = { A: 'MATH223', B: 'CYS406' };
+        let choices = { A: 'MATH223', B: ['CS496', 'CS471'], C: 'HPE101' };
+        const GROUP_META = { A: 'Math Elective - choose 1', B: 'AI/DS Electives - choose 2', C: 'Physical Education - choose 1' };
+        const GROUP_LIMITS = { A: 1, B: 2, C: 1 };
+
+        function selectedIds(group) {
+            const choice = choices[group];
+            return Array.isArray(choice) ? choice : (choice ? [choice] : []);
+        }
+        function isChoiceSelected(group, id) {
+            return selectedIds(group).includes(id);
+        }
+        function switchChoice(group, value) {
+            const limit = GROUP_LIMITS[group] || 1;
+            const current = selectedIds(group);
+            if (current.includes(value)) return [];
+            if (limit === 1) {
+                const removed = current;
+                choices[group] = value;
+                return removed;
+            }
+            const removed = current.length >= limit ? [current[current.length - 1]] : [];
+            choices[group] = current.filter(id => !removed.includes(id)).concat(value);
+            return removed;
+        }
         let searchQ = '';
         let levelFilter = 'all';
         let highlighted = null;
         let darkMode = false;
 
-        function prefersDark() {
-            return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        }
 
-        function hasStoredTheme() {
-            return localStorage.getItem('psu3_dark') !== null;
+        function renderChoiceGroups() {
+            const row = document.getElementById('choiceRow');
+            if (!row) return;
+            row.innerHTML = Object.keys(choices).map(g => {
+                const options = COURSES_RAW.filter(c => c.group === g);
+                if (!options.length) return '';
+                const buttons = options.map(c => `<button class="choice-opt ${isChoiceSelected(g, c.id) ? 'selected' : ''}" data-group="${g}" data-val="${c.id}">${c.id} · ${c.name}</button>`).join('');
+                return `<div class="choice-card"><div class="choice-head"><span class="choice-tag">GROUP ${g}</span><span class="choice-name">${GROUP_META[g] || 'Elective - choose 1'}</span></div><div class="choice-opts">${buttons}</div></div>`;
+            }).join('');
         }
-
         function persist() {
-            localStorage.setItem('psu3_done', JSON.stringify([...completed]));
-            localStorage.setItem('psu3_choices', JSON.stringify(choices));
-            localStorage.setItem('psu3_dark', darkMode ? '1' : '0');
+            localStorage.setItem('psu3_se_ai_done', JSON.stringify([...completed]));
+            localStorage.setItem('psu3_se_ai_choices', JSON.stringify(choices));
+            localStorage.setItem('psu3_se_ai_dark', darkMode ? '1' : '0');
         }
         function loadState() {
             try {
-                const d = localStorage.getItem('psu3_done'); if (d) completed = new Set(JSON.parse(d));
-                const c = localStorage.getItem('psu3_choices'); if (c) choices = JSON.parse(c);
-                const t = localStorage.getItem('psu3_dark'); if (t !== null) darkMode = t === '1';
-                if (t === null) darkMode = prefersDark();
+                const d = localStorage.getItem('psu3_se_ai_done'); if (d) completed = new Set(JSON.parse(d));
+                const c = localStorage.getItem('psu3_se_ai_choices'); if (c) choices = JSON.parse(c);
+                const t = localStorage.getItem('psu3_se_ai_dark'); if (t !== null) darkMode = t === '1';
                 const siteTheme = localStorage.getItem('shoug-theme');
                 if (siteTheme === 'light' || siteTheme === 'dark') darkMode = siteTheme === 'dark';
             } catch (e) { }
         }
 
         function getActive() {
-            return COURSES_RAW.filter(c => !c.group || c.id === choices[c.group]);
+            return COURSES_RAW.filter(c => !c.group || isChoiceSelected(c.group, c.id));
         }
         function getStatus(c) {
             if (completed.has(c.id)) return 'done';
@@ -1281,14 +1324,14 @@
     <div class="c-top">
       <div>
         <span class="c-code">${course.id}</span>
-        ${course.group ? `<span class="c-group-tag">مجموعة ${course.group}</span>` : ''}
+        ${course.group ? `<span class="c-group-tag">GRP ${course.group}</span>` : ''}
       </div>
-      <span class="c-hrs">${course.hours} ساعة</span>
+      <span class="c-hrs">${course.hours} hrs</span>
     </div>
     <div class="c-name">${course.name}</div>
     <div class="c-prereqs">${prereqHtml}</div>
     <div class="c-bottom">
-      <span class="c-level-label">المستوى ${course.level}</span>
+      <span class="c-level-label">Level ${course.level}</span>
       <span class="c-level-dot lvl${course.level}"></span>
     </div>
   `;
@@ -1312,6 +1355,7 @@
 
         function render() {
             updateStats();
+            renderChoiceGroups();
             const active = getActive();
             const q = searchQ.toLowerCase();
 
@@ -1337,23 +1381,16 @@
 
             colL.innerHTML = ''; colA.innerHTML = ''; colD.innerHTML = '';
 
-            if (!locked.length) colL.innerHTML = emptyHtml('🎉', 'لا يوجد مقررات مقفلة!');
+            if (!locked.length) colL.innerHTML = emptyHtml('🎉', 'Nothing locked!');
             else locked.forEach(c => colL.appendChild(buildCard(c)));
 
-            if (!avail.length) colA.innerHTML = emptyHtml('😴', 'لا توجد مقررات متاحة بعد');
+            if (!avail.length) colA.innerHTML = emptyHtml('😴', 'No courses available yet');
             else avail.forEach(c => colA.appendChild(buildCard(c)));
 
-            if (!done.length) colD.innerHTML = emptyHtml('🌱', 'أكمل أول مقرر لك!');
+            if (!done.length) colD.innerHTML = emptyHtml('🌱', 'Complete your first course!');
             else done.forEach(c => colD.appendChild(buildCard(c)));
 
-            // تحديث حالة أزرار الاختيار
-            ['A', 'B'].forEach(g => {
-                document.querySelectorAll(`.choice-opt[data-group="${g}"]`).forEach(b => {
-                    b.classList.toggle('selected', b.dataset.val === choices[g]);
-                });
-            });
-
-            // أزرار فلترة المستوى
+            // Level filter buttons
             const lvlFilter = document.getElementById('levelFilter');
             const existingLevels = [...new Set(active.map(c => c.level))].sort((a, b) => a - b);
             const currentBtns = [...lvlFilter.querySelectorAll('[data-level]')].map(b => b.dataset.level);
@@ -1364,7 +1401,7 @@
                     const b = document.createElement('button');
                     b.className = `lf-btn${levelFilter === String(lv) ? ' active' : ''}`;
                     b.dataset.level = String(lv);
-                    b.textContent = lv === 'all' ? 'جميع المستويات' : `مستوى ${lv}`;
+                    b.textContent = lv === 'all' ? 'All Levels' : `L${lv}`;
                     b.addEventListener('click', () => {
                         levelFilter = String(lv);
                         document.querySelectorAll('.lf-btn').forEach(x => x.classList.remove('active'));
@@ -1383,35 +1420,35 @@
             if (completed.has(id)) {
                 const deps = allDeps(id).filter(d => completed.has(d));
                 if (deps.length) {
-                    showModal('إزالة المقررات المرتبطة؟',
-                        `إلغاء تحديد <strong>${id}</strong> سيلغي أيضاً هذه المقررات:`,
+                    showModal('Remove dependent courses?',
+                        `Unchecking <strong>${id}</strong> will also uncheck these:`,
                         deps,
                         () => {
                             completed.delete(id);
                             deps.forEach(d => completed.delete(d));
                             persist(); render();
-                            toast(`تم إزالة ${id} و ${deps.length} مقررات مرتبطة`, 'err');
+                            toast(`${id} + ${deps.length} dependent(s) removed`, 'err');
                         }
                     );
                 } else {
                     completed.delete(id);
                     persist(); render();
-                    toast(`تم إلغاء ${course.id}`, 'err');
+                    toast(`${course.id} unchecked`, 'err');
                 }
             } else {
                 const missing = course.prereqs.filter(p => !completed.has(p));
                 if (missing.length) {
-                    toast(`تحتاج إلى ${missing.join(', ')} أولاً! 🔒`, 'err');
+                    toast(`Need ${missing.join(', ')} first! 🔒`, 'err');
                     return;
                 }
                 completed.add(id);
                 persist(); render();
                 confetti();
-                toast(`تم إكمال ${course.id}! 🎉`, 'ok');
+                toast(`${course.id} complete! 🎉`, 'ok');
             }
         }
 
-        // انفجار قصاصات ملونة
+        // Confetti burst
         function confetti() {
             const root = document.getElementById('celebrate-root');
             const colors = ['#a78bfa', '#60a5fa', '#34d399', '#fbbf24', '#f472b6', '#fb923c', '#f87171'];
@@ -1437,13 +1474,13 @@
             ov.className = 'modal-overlay';
             ov.innerHTML = `
     <div class="modal">
-      <div class="modal-head"><h3>${title}</h3><p>لا يمكن التراجع عن هذا الإجراء بسهولة</p></div>
+      <div class="modal-head"><h3>${title}</h3><p>This action cannot be undone easily</p></div>
       <div class="modal-body">
         <p>${msg}</p>
         <ul class="modal-list">${items.map(i => `<li>${i}</li>`).join('')}</ul>
         <div class="modal-actions">
-          <button class="btn btn-ghost" id="mCancel">إلغاء</button>
-          <button class="btn btn-red" id="mOk">نعم، إزالة</button>
+          <button class="btn btn-ghost" id="mCancel">Cancel</button>
+          <button class="btn btn-red" id="mOk">Yes, remove</button>
         </div>
       </div>
     </div>
@@ -1467,43 +1504,46 @@
                 setTimeout(() => t.remove(), 300);
             }, 2800);
         }
-
-        // أزرار الاختيار
-        document.querySelectorAll('.choice-opt').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const g = btn.dataset.group, val = btn.dataset.val;
-                if (choices[g] === val) return;
-                const old = choices[g];
-                const aff = completed.has(old) ? [old, ...allDeps(old).filter(d => completed.has(d))] : [];
-                const doSwitch = () => {
-                    aff.forEach(d => completed.delete(d));
-                    choices[g] = val;
-                    persist(); render();
-                    toast(`المجموعة ${g}: تم التبديل إلى ${val} ✓`, 'ok');
-                };
-                if (aff.length) showModal(`تبديل المجموعة ${g}؟`, `سيؤدي هذا إلى إزالة المقررات المكتملة التالية:`, aff, doSwitch);
-                else doSwitch();
-            });
+        // Choice buttons
+        document.addEventListener('click', e => {
+            const btn = e.target.closest('.choice-opt');
+            if (!btn) return;
+            const g = btn.dataset.group, val = btn.dataset.val;
+            if (isChoiceSelected(g, val)) return;
+            const removed = (() => {
+                const limit = GROUP_LIMITS[g] || 1;
+                const current = selectedIds(g);
+                return limit > 1 && current.length < limit ? [] : current.slice(-(limit > 1 ? 1 : current.length));
+            })();
+            const aff = removed.flatMap(old => completed.has(old) ? [old, ...allDeps(old).filter(d => completed.has(d))] : []);
+            const doSwitch = () => {
+                aff.forEach(d => completed.delete(d));
+                switchChoice(g, val);
+                persist(); render();
+                toast(`Group ${g}: switched to ${val} ✓`, 'ok');
+            };
+            if (aff.length) showModal(`Switch Group ${g}?`, `This will remove these completed courses:`, aff, doSwitch);
+            else doSwitch();
         });
 
         document.getElementById('mark13Btn').addEventListener('click', () => {
             const ids = topoSort(getActive().filter(c => c.level <= 3).map(c => c.id));
             ids.forEach(id => completed.add(id));
             persist(); render(); confetti();
-            toast('تم إكمال المستويات 1-3! 🚀', 'ok');
+            toast('Levels 1 - 3 all done! 🚀', 'ok');
         });
         document.getElementById('markAllBtn').addEventListener('click', () => {
-            showModal('تحديد الكل كمكتمل؟', 'سيتم تحديد جميع المقررات النشطة كمكتملة!', [], () => {
+            showModal('Mark everything complete?', 'This will mark all active courses as done!', [], () => {
                 const ids = topoSort(getActive().map(c => c.id));
                 ids.forEach(id => completed.add(id));
                 persist(); render(); confetti();
-                toast('أحسنت! 🎓🎉', 'ok');
+                toast('You did it!! 🎓🎉', 'ok');
             });
         });
         document.getElementById('resetBtn').addEventListener('click', () => {
-            showModal('إعادة تعيين التقدم؟', 'سيؤدي هذا إلى مسح جميع المقررات المكتملة.', [], () => {
+            showModal('Reset all progress?', 'This will clear all your completed courses.', [], () => {
                 completed.clear(); persist(); render();
-                toast('تم إعادة تعيين التقدم', 'err');
+                toast('Progress reset', 'err');
             });
         });
         document.getElementById('themeBtn').addEventListener('click', () => {
@@ -1525,7 +1565,7 @@
             searchTimer = setTimeout(render, 120);
         });
 
-        // التهيئة
+        // Init
         loadState();
         document.body.classList.toggle('dark', darkMode);
         document.body.classList.toggle('light', !darkMode);
@@ -1534,22 +1574,6 @@
         document.documentElement.classList.toggle('light', !darkMode);
         document.documentElement.classList.toggle('force-light', !darkMode);
         document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
-        const media = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
-        if (media) {
-            const syncWithSystem = (e) => {
-                if (hasStoredTheme()) return;
-                darkMode = e.matches;
-                document.body.classList.toggle('dark', darkMode);
-                document.body.classList.toggle('light', !darkMode);
-                document.body.classList.toggle('shoug-light-mode', !darkMode);
-                document.documentElement.classList.toggle('dark', darkMode);
-                document.documentElement.classList.toggle('light', !darkMode);
-                document.documentElement.classList.toggle('force-light', !darkMode);
-                document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
-            };
-            if (media.addEventListener) media.addEventListener('change', syncWithSystem);
-            else if (media.addListener) media.addListener(syncWithSystem);
-        }
         render();
     </script>
 </body>
