@@ -8,53 +8,33 @@
     <link rel="apple-touch-icon" href="/assets/favicon.png?v=2">
     <meta charset="UTF-8" vid="2">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" vid="3">
-    <title vid="4">SHOUG.TECH - Academics</title>
+    <title>CYS405 | Breakdown: Chapter 1 Introduction to Ethical Hacking and Penetration Testing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" vid="5">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" vid="6">
     <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&amp;family=Rajdhani:wght@500;600;700&amp;family=Inter:wght@400;500&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700;800&amp;family=Rajdhani:wght@500;600;700&amp;display=swap"
         rel="stylesheet" vid="7">
-
-
-
     <style vid="8">
         :root {
 
             --bg-void: #05020a;
             --bg-surface: #0a0514;
             --bg-elevated: #110822;
-
-
-            --brand-purple: #b829ea;
-            --brand-purple-glow: rgba(184, 41, 234, 0.4);
-            --brand-purple-dim: rgba(184, 41, 234, 0.15);
-
+            --brand-purple: #ff2a4b;
             --alert-red: #ff2a4b;
-            --alert-red-glow: rgba(255, 42, 75, 0.4);
-            --alert-red-dim: rgba(255, 42, 75, 0.15);
 
 
-            --text-high: #ffffff;
-            --text-med: #d1c5e5;
-            --text-low: #8b7d9e;
-            --text-dark: #05020a;
+            --text-primary: #e0e0e0;
+            --text-dimmed: #7a7585;
+            --border-hard: #2a1b3d;
+            --border-accent: rgba(255, 42, 75, 0.4);
 
-
-            --border-thin: 1px solid rgba(184, 41, 234, 0.3);
-            --border-red: 1px solid rgba(255, 42, 75, 0.4);
-            --grid-line: rgba(255, 255, 255, 0.03);
-
-
-            --font-display: 'Rajdhani', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
+            --font-display: 'Rajdhani', sans-serif;
             --font-sans: 'Inter', sans-serif;
 
-
-            --nav-height: 80px;
-            --container-w: 1400px;
-            --pad-edge: 4vw;
+            --header-height: 56px;
         }
-
 
         * {
             box-sizing: border-box;
@@ -62,478 +42,621 @@
             padding: 0;
         }
 
-        ::selection {
-            background: var(--brand-purple);
-            color: var(--text-high);
-        }
-
         body {
             background-color: var(--bg-void);
-            color: var(--text-high);
-            font-family: var(--font-sans);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-
-            background-image:
-                linear-gradient(var(--grid-line) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-            background-size: 40px 40px;
-            background-position: center top;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font: inherit;
-        }
-
-
-        .mono {
+            color: var(--text-primary);
             font-family: var(--font-mono);
-        }
-
-        .display {
-            font-family: var(--font-display);
-            text-transform: uppercase;
-        }
-
-
-        .container {
-            max-width: var(--container-w);
-            margin: 0 auto;
-            padding: 0 var(--pad-edge);
-        }
-
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: var(--nav-height);
-            background: rgba(5, 2, 10, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(184, 41, 234, 0.2);
-            z-index: 100;
+            font-size: 13px;
+            line-height: 1.5;
+            min-height: 100vh;
+            overflow-y: auto;
             display: flex;
-            align-items: center;
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-
-        .logo {
-            font-size: 1.125rem;
-            font-weight: 800;
-            letter-spacing: 0.1em;
-            color: var(--text-high);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo::before {
-            content: '';
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            background: var(--brand-purple);
-            box-shadow: 0 0 10px var(--brand-purple-glow);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .nav-links a {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-low);
-            transition: color 0.2s ease;
+            flex-direction: column;
             position: relative;
         }
 
-        .nav-links a:hover {
-            color: var(--text-high);
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
         }
 
-        .nav-links a.active {
+
+        .text-purple {
             color: var(--brand-purple);
-            font-weight: 700;
         }
 
-        .nav-links a.active::after {
+        .text-dimmed {
+            color: var(--text-dimmed);
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+
+        .global-header {
+            height: var(--header-height);
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border-hard);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        .header-logo {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+
+        .header-logo::before {
+            content: "[";
+            color: var(--brand-purple);
+            font-family: var(--font-mono);
+        }
+
+        .header-logo::after {
+            content: "]";
+            color: var(--brand-purple);
+            font-family: var(--font-mono);
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        .header-nav a {
+            color: var(--text-dimmed);
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .header-nav a:hover {
+            color: var(--text-primary);
+        }
+
+        .header-nav a.active {
+            color: var(--brand-purple);
+            position: relative;
+        }
+
+
+        .header-nav a.active::after {
             content: '';
             position: absolute;
             bottom: -6px;
             left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--brand-purple);
-            box-shadow: 0 0 8px var(--brand-purple-glow);
+            width: 100%;
+            height: 1px;
+            background-color: var(--brand-purple);
         }
 
-        .header-tools {
+        .header-right {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 16px;
         }
 
         .icon-cluster {
             display: flex;
-            gap: 1rem;
-            color: var(--text-low);
+            gap: 12px;
+            color: var(--text-dimmed);
         }
 
-        .icon-cluster svg {
-            width: 18px;
-            height: 18px;
-            transition: color 0.2s, transform 0.2s;
-        }
-
-        .icon-cluster svg:hover {
-            color: var(--brand-purple);
-            transform: scale(1.1);
+        .icon-cluster span {
+            cursor: pointer;
         }
 
         .btn-contact {
-            border: 1px solid var(--alert-red);
+            background: transparent;
             color: var(--alert-red);
-            padding: 0.5rem 1.25rem;
-            font-size: 0.8rem;
+            border: 1px solid var(--alert-red);
+            padding: 6px 16px;
+            font-family: var(--font-mono);
+            font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: all 0.2s ease;
-            position: relative;
-            overflow: hidden;
+            cursor: pointer;
+            border-radius: 0;
+            transition: all 0.2s;
+            letter-spacing: 1px;
         }
 
         .btn-contact:hover {
-            background: var(--alert-red-dim);
-            box-shadow: 0 0 15px var(--alert-red-glow);
-            color: var(--text-high);
+            background: rgba(255, 42, 75, 0.1);
+            box-shadow: 0 0 8px rgba(255, 42, 75, 0.3);
         }
 
 
-        main {
-            padding-top: calc(var(--nav-height) + 6rem);
-            padding-bottom: 8rem;
-            min-height: 100vh;
+        .layout-wrapper {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
         }
 
 
-        .hero {
-            margin-bottom: 5rem;
-            position: relative;
+        .sidebar {
+            width: 280px;
+            background-color: var(--bg-surface);
+            border-right: 1px solid var(--border-hard);
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            overflow-y: auto;
         }
 
-        .hero-label {
-            color: var(--brand-purple);
-            font-size: 0.85rem;
-            letter-spacing: 0.2em;
-            margin-bottom: 1.5rem;
-            display: inline-flex;
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-void);
+            border-left: 1px solid var(--border-hard);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-hard);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-dimmed);
+        }
+
+        .sidebar-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-hard);
+            font-size: 10px;
+            color: var(--text-dimmed);
+            letter-spacing: 2px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .file-tree {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .tree-node {
+            display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 8px;
+            cursor: pointer;
+            color: var(--text-dimmed);
         }
 
-        .hero-label::before,
-        .hero-label::after {
-            content: '';
-            height: 1px;
-            width: 24px;
-            background: var(--brand-purple);
-            opacity: 0.5;
+        .tree-node:hover {
+            color: var(--text-primary);
         }
 
-        .hero h1 {
-            font-size: clamp(2.25rem, 10vw, 5rem);
-            line-height: 0.9;
+        .tree-node.active {
+            color: var(--brand-purple);
             font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 2.5rem;
-            max-width: 20ch;
-            text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
         }
 
-        .hero-meta {
+        .tree-indent {
+            color: var(--border-hard);
+            font-family: monospace;
+        }
+
+        .tree-icon {
+            font-size: 14px;
+            width: 14px;
+            text-align: center;
+        }
+
+
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-void);
+            overflow: hidden;
+        }
+
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            border-bottom: 1px solid var(--border-hard);
+            background-color: var(--bg-surface);
+            flex-shrink: 0;
+        }
+
+        .breadcrumb {
+            color: var(--text-dimmed);
+            display: flex;
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        .breadcrumb span.separator {
+            color: var(--border-hard);
+        }
+
+        .breadcrumb span.current {
+            color: var(--text-primary);
+        }
+
+        .sys-time {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--brand-purple);
+            font-weight: 700;
+            border: 1px solid var(--border-accent);
+            padding: 4px 12px;
+            background: rgba(255, 42, 75, 0.05);
+            letter-spacing: 1px;
+        }
+
+
+        .sys-time .blink {
+            animation: blink 1s step-start infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+
+        .page-header {
+            padding: 32px 48px;
+            background-color: var(--bg-void);
+            border-bottom: 1px solid var(--border-hard);
+            flex-shrink: 0;
+            position: relative;
+        }
+
+
+        .page-header::before,
+        .page-header::after {
+            content: "+++++";
+            position: absolute;
+            color: var(--border-hard);
+            font-size: 10px;
+            letter-spacing: 4px;
+        }
+
+        .page-header::before {
+            top: 12px;
+            right: 24px;
+        }
+
+        .page-header::after {
+            bottom: 12px;
+            left: 24px;
+        }
+
+        .ch-label {
+            font-size: 11px;
+            color: var(--brand-purple);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+            display: inline-block;
+            border-bottom: 1px solid var(--border-accent);
+            padding-bottom: 4px;
+        }
+
+        .ch-title {
+            font-family: var(--font-display);
+            font-size: 42px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn {
+            background: transparent;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 0;
+            letter-spacing: 1px;
+            transition: all 0.2s;
             display: inline-flex;
             align-items: center;
-            background: var(--bg-surface);
-            border: var(--border-thin);
-            padding: 0.75rem 1.5rem;
-            font-size: 0.8rem;
-            color: var(--text-med);
-            gap: 1rem;
-            position: relative;
+            gap: 8px;
         }
 
-
-        .hero-meta::before {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: -1px;
-            width: 8px;
-            height: 8px;
-            border-top: 2px solid var(--brand-purple);
-            border-left: 2px solid var(--brand-purple);
-        }
-
-        .hero-meta span {
-            opacity: 0.6;
-        }
-
-        .hero-meta strong {
-            color: var(--text-high);
-            font-weight: 500;
-        }
-
-        .hero-meta .highlight {
-            color: var(--alert-red);
-            text-shadow: 0 0 8px var(--alert-red-glow);
-        }
-
-
-        .hub-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            position: relative;
-        }
-
-
-        .hub-grid::after {
-            content: '+';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: var(--font-mono);
+        .btn-primary {
             color: var(--brand-purple);
-            font-size: 1.5rem;
-            opacity: 0.5;
+            border: 1px solid var(--brand-purple);
+            box-shadow: inset 0 0 0 1px transparent;
+        }
+
+        .btn-primary:hover {
+            background: rgba(255, 42, 75, 0.1);
+            box-shadow: 0 0 12px rgba(255, 42, 75, 0.2);
+        }
+
+        .btn-secondary {
+            color: var(--text-dimmed);
+            border: 1px solid var(--text-dimmed);
+        }
+
+        .btn-secondary:hover {
+            color: var(--text-primary);
+            border-color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+
+        .nav-strip {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border-hard);
+            font-size: 11px;
+            letter-spacing: 1px;
+            flex-shrink: 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.2s;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        .nav-link.prev {
+            color: var(--text-dimmed);
+        }
+
+        .nav-link.next {
+            color: var(--brand-purple);
+            font-weight: 700;
+        }
+
+
+        .embed-area-wrapper {
+            flex: 1;
+            padding: 24px 48px 48px 48px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .embed-container {
+            flex: 1;
+            width: 100%;
+            border: 1px solid var(--border-hard);
+            background-color: var(--bg-elevated);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+
+        .embed-container::before,
+        .embed-container::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 1px solid var(--border-accent);
             pointer-events: none;
         }
 
+        .embed-container::before {
+            top: -1px;
+            left: -1px;
+            border-right: none;
+            border-bottom: none;
+        }
 
-        .track-card {
-            background: var(--bg-surface);
-            border: var(--border-thin);
-            padding: 3.5rem;
+        .embed-container::after {
+            bottom: -1px;
+            right: -1px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .embed-fallback {
+            color: var(--text-dimmed);
+            text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            min-height: 400px;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .fallback-icon {
+            color: var(--border-hard);
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .fallback-text {
+            letter-spacing: 1px;
+            border: 1px dashed var(--border-hard);
+            padding: 16px 32px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .fallback-text span {
+            color: var(--alert-red);
+        }
+
+
+        .content-area {
+            overflow: visible !important;
+            min-width: 0;
+        }
+
+        .embed-area-wrapper {
+            flex: initial !important;
+            width: 100%;
+            overflow: visible !important;
+        }
+
+        .page-content {
+            flex: initial !important;
+            min-height: auto !important;
+            overflow: visible !important;
+            padding-bottom: clamp(48px, 7vw, 112px);
+        }
+
+        .embed-container {
+            flex: initial !important;
+            display: block !important;
+            align-items: stretch !important;
+            justify-content: flex-start !important;
+            min-height: min(760px, calc(100vh - 120px)) !important;
+            height: auto !important;
+            overflow: visible !important;
+        }
+
+        .embed-frame {
             position: relative;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            cursor: pointer;
+            z-index: 2;
+            width: 100%;
+            min-height: min(860px, calc(100vh - 96px));
+            height: min(1100px, max(82vh, 760px));
+            border: 0;
+            background: #fff;
+            display: block;
+        }
+
+        .rendered-content iframe,
+        .rendered-content video {
+            position: relative;
+            z-index: 2;
+            display: block;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .rendered-content iframe {
+            min-height: min(860px, calc(100vh - 96px));
+            height: min(1100px, max(82vh, 760px));
+            border: 0;
+            background: #fff;
+        }
+
+        .rendered-content video {
+            height: auto;
+            background: #050508;
+        }
+
+        .action-buttons a.btn {
             text-decoration: none;
-            overflow: hidden;
-
-
-            --card-accent: var(--brand-purple);
-            --card-glow: var(--brand-purple-glow);
-            --card-dim: var(--brand-purple-dim);
         }
 
-
-        .track-card::before,
-        .track-card::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            transition: all 0.3s ease;
-            opacity: 0.3;
-        }
-
-        .track-card::before {
-            top: 0;
-            left: 0;
-            border-top: 2px solid var(--card-accent);
-            border-left: 2px solid var(--card-accent);
-        }
-
-        .track-card::after {
-            bottom: 0;
-            right: 0;
-            border-bottom: 2px solid var(--card-accent);
-            border-right: 2px solid var(--card-accent);
-        }
-
-
-        .track-card.cyber {
-            --card-accent: var(--alert-red);
-            --card-glow: var(--alert-red-glow);
-            --card-dim: var(--alert-red-dim);
-            border-color: rgba(255, 42, 75, 0.3);
-        }
-
-
-        .track-card:hover {
-            background: var(--bg-elevated);
-            border-color: var(--card-accent);
-            box-shadow: 0 10px 40px -10px var(--card-dim), inset 0 0 20px -10px var(--card-glow);
-            transform: translateY(-4px);
-        }
-
-        .track-card:hover::before,
-        .track-card:hover::after {
-            opacity: 1;
-            width: 30px;
-            height: 30px;
-        }
-
-        .track-card:hover .card-arrow {
-            transform: translateX(10px);
-            color: var(--card-accent);
-        }
-
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .card-title {
-            font-size: 3rem;
-            line-height: 1;
-            color: var(--text-high);
-            max-width: 70%;
-        }
-
-        .card-count {
-            font-size: 0.85rem;
-            color: var(--bg-void);
-            background: var(--card-accent);
-            padding: 0.25rem 0.5rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-        }
-
-        .card-body {
-            margin-top: auto;
-            padding-top: 4rem;
-        }
-
-        .card-tags {
-            font-size: 0.85rem;
-            color: var(--text-med);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tag-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .tag-item:not(:last-child)::after {
-            content: '·';
-            color: var(--card-accent);
-            opacity: 0.5;
-        }
-
-        .card-footer {
-            margin-top: 2rem;
-            display: flex;
-            justify-content: flex-end;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 1.5rem;
-        }
-
-        .card-arrow {
-            color: var(--text-low);
-            transition: all 0.3s ease;
-        }
-
-
-        footer {
-            border-top: 1px solid var(--brand-purple);
-            background: var(--bg-surface);
-            padding: 4rem 0;
+        .rendered-content {
             position: relative;
+            z-index: 2;
+            min-height: auto;
+            max-height: none;
+            padding: clamp(24px, 4vw, 56px);
+            background: rgba(5, 2, 10, 0.72);
+            border: 1px solid rgba(255, 42, 75, 0.26);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.75;
+            overflow: visible;
         }
 
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: var(--brand-purple);
-            box-shadow: 0 0 15px var(--brand-purple);
+        .rendered-content h1,
+        .rendered-content h2,
+        .rendered-content h3 {
+            margin: 1.35em 0 0.65em;
+            color: var(--text-main);
+            font-family: var(--font-display);
+            letter-spacing: 0;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+        .rendered-content h1:first-child,
+        .rendered-content h2:first-child,
+        .rendered-content h3:first-child {
+            margin-top: 0;
         }
 
-        .footer-col h4 {
-            color: var(--text-high);
-            font-size: 0.85rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.1em;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .rendered-content p,
+        .rendered-content ul,
+        .rendered-content ol,
+        .rendered-content table,
+        .rendered-content blockquote {
+            margin: 0 0 1rem;
         }
 
-        .footer-col h4::before {
-            content: '>';
+        .rendered-content a {
             color: var(--brand-purple);
+            text-decoration: underline;
+            text-underline-offset: 4px;
         }
 
-        .footer-col ul {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
+        .rendered-content code,
+        .rendered-content pre {
+            font-family: var(--font-mono);
         }
 
-        .footer-col a {
-            color: var(--text-low);
-            font-size: 0.85rem;
-            transition: color 0.2s;
+        .rendered-content pre {
+            overflow: auto;
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(0, 0, 0, 0.32);
         }
 
-        .footer-col a:hover {
-            color: var(--text-high);
-        }
-
-        .footer-copy {
-            color: var(--text-low);
-            font-size: 0.75rem;
-            opacity: 0.5;
-            margin-top: 1rem;
+        .legacy-embed-placeholder {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid rgba(255, 42, 75, 0.36);
+            color: var(--text-dimmed);
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
 
@@ -663,8 +786,8 @@
 
         .shoug-header-nav a:hover,
         .shoug-header-nav a.active {
-            color: #b829ea;
-            text-shadow: 0 0 14px rgba(184, 41, 234, 0.35);
+            color: #ff2a4b;
+            text-shadow: 0 0 14px rgba(255, 42, 75, 0.35);
         }
 
         .shoug-header-actions {
@@ -680,7 +803,7 @@
         }
 
         .breadcrumb-link:hover {
-            color: var(--brand-purple, #b829ea);
+            color: var(--brand-purple, #ff2a4b);
         }
 
         .shoug-icon-btn:focus,
@@ -712,9 +835,9 @@
         .shoug-icon-btn:hover,
         .shoug-lang-btn:hover,
         .shoug-theme-btn:hover {
-            color: #b829ea;
-            border-color: rgba(184, 41, 234, 0.55);
-            background: rgba(184, 41, 234, 0.08);
+            color: #ff2a4b;
+            border-color: rgba(255, 42, 75, 0.55);
+            background: rgba(255, 42, 75, 0.08);
         }
 
         .shoug-icon-btn svg,
@@ -808,7 +931,7 @@
         }
 
         .shoug-footer-link:hover {
-            color: #b829ea;
+            color: #ff2a4b;
         }
 
         .shoug-footer-meta {
@@ -835,7 +958,7 @@
             display: flex !important;
             flex-direction: column;
             background: var(--bg-surface, #0a0514);
-            border-right: 1px solid var(--border-dim, rgba(184, 41, 234, 0.24));
+            border-right: 1px solid var(--border-dim, rgba(255, 42, 75, 0.24));
             color: var(--text-dim, #8f8b9a);
             font-family: 'JetBrains Mono', monospace;
             z-index: 20;
@@ -849,7 +972,7 @@
             justify-content: space-between;
             gap: 10px;
             padding: 0 20px;
-            border-bottom: 1px solid var(--border-dim, rgba(184, 41, 234, 0.24));
+            border-bottom: 1px solid var(--border-dim, rgba(255, 42, 75, 0.24));
             color: var(--text-dim, #8f8b9a);
             font-size: 0.66rem;
             font-weight: 700;
@@ -872,9 +995,9 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(184, 41, 234, 0.34);
-            background: rgba(184, 41, 234, 0.06);
-            color: var(--brand-purple, #b829ea);
+            border: 1px solid rgba(255, 42, 75, 0.34);
+            background: rgba(255, 42, 75, 0.06);
+            color: var(--brand-purple, #ff2a4b);
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.78rem;
             font-weight: 800;
@@ -883,8 +1006,8 @@
         }
 
         .sidebar-collapse-button:hover {
-            border-color: var(--brand-purple, #b829ea);
-            background: rgba(184, 41, 234, 0.14);
+            border-color: var(--brand-purple, #ff2a4b);
+            background: rgba(255, 42, 75, 0.14);
             color: var(--text-main, #f8f7fb);
         }
 
@@ -959,11 +1082,11 @@
 
         .academic-sidebar .tree-course-link:hover,
         .academic-sidebar .tree-file:hover {
-            color: var(--brand-purple, #b829ea);
+            color: var(--brand-purple, #ff2a4b);
         }
 
         .academic-sidebar .tree-toggle {
-            color: var(--brand-purple, #b829ea);
+            color: var(--brand-purple, #ff2a4b);
         }
 
         .academic-sidebar .cyber-track {
@@ -974,7 +1097,7 @@
             display: none;
             margin: 0 0 10px 20px;
             padding-left: 8px;
-            border-left: 1px solid rgba(184, 41, 234, 0.28);
+            border-left: 1px solid rgba(255, 42, 75, 0.28);
         }
 
         .academic-sidebar .tree-children.is-open,
@@ -993,7 +1116,7 @@
             margin-bottom: 12px;
             max-height: 360px;
             overflow-y: auto;
-            border-left-color: rgba(184, 41, 234, 0.42);
+            border-left-color: rgba(255, 42, 75, 0.42);
         }
 
         .academic-sidebar .section-children .tree-item {
@@ -1008,10 +1131,10 @@
         }
 
         .academic-sidebar .file-active {
-            color: var(--brand-purple, #b829ea);
-            background: rgba(184, 41, 234, 0.08);
-            text-shadow: 0 0 16px rgba(184, 41, 234, 0.3);
-            border-left: 2px solid var(--brand-purple, #b829ea);
+            color: var(--brand-purple, #ff2a4b);
+            background: rgba(255, 42, 75, 0.08);
+            text-shadow: 0 0 16px rgba(255, 42, 75, 0.3);
+            border-left: 2px solid var(--brand-purple, #ff2a4b);
         }
 
         .academic-sidebar .status-dot {
@@ -1051,8 +1174,8 @@
             --border-med: rgba(22, 17, 31, 0.2);
             --border-medium: rgba(22, 17, 31, 0.2);
             --border-hard: rgba(22, 17, 31, 0.26);
-            --grid-line: rgba(184, 41, 234, 0.08);
-            --grid-pattern: rgba(184, 41, 234, 0.08);
+            --grid-line: rgba(255, 42, 75, 0.08);
+            --grid-pattern: rgba(255, 42, 75, 0.08);
             background: #f6f4fb !important;
             color: #16111f !important;
         }
@@ -1147,6 +1270,51 @@
             }
         }
 
+
+        /* ── open-in-new-tab link styling ── */
+        .rendered-content ul li:only-child>a,
+        .rendered-content>ul:first-of-type li a {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--brand-purple);
+            text-decoration: none;
+            border: 1px solid rgba(255, 42, 75, 0.5);
+            padding: 6px 14px;
+            margin: 6px 0;
+            transition: background 160ms, box-shadow 160ms;
+        }
+
+        .rendered-content ul li:only-child>a::before,
+        .rendered-content>ul:first-of-type li a::before {
+            content: "[ ";
+        }
+
+        .rendered-content ul li:only-child>a::after,
+        .rendered-content>ul:first-of-type li a::after {
+            content: " -> ]";
+        }
+
+        .rendered-content ul li:only-child>a:hover,
+        .rendered-content>ul:first-of-type li a:hover {
+            background: rgba(255, 42, 75, 0.1);
+            box-shadow: 0 0 12px rgba(255, 42, 75, 0.25);
+        }
+
+        .rendered-content ul li:only-child,
+        .rendered-content>ul:first-of-type li {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .rendered-content ul li:only-child::marker,
+        .rendered-content>ul:first-of-type li::marker {
+            display: none;
+        }
 
         /* ──────────────────────────────────────────────────────
            RESPONSIVE: Tablet (≤1024px) and Mobile (≤768px)
@@ -1260,7 +1428,7 @@
             }
 
             .mobile-sidebar-toggle:hover {
-                color: #b829ea;
+                color: #ff2a4b;
                 border-color: rgba(184, 41, 234, 0.55);
                 background: rgba(184, 41, 234, 0.08);
             }
@@ -1400,13 +1568,6 @@
         }
 
         /* END RESPONSIVE */
-
-        /* ── light-mode: old internal header element ── */
-        body.shoug-light-mode header {
-            background: rgba(246, 244, 251, 0.96) !important;
-            border-color: rgba(22, 17, 31, 0.12) !important;
-            color: #16111f !important;
-        }
     </style>
     <style id="academic-sidebar-embed-fix">
         .academic-sidebar {
@@ -1443,32 +1604,39 @@
     <link rel="stylesheet" href="/styles/light-mode.css">
 
     <meta name="description"
-        content="Contact [ ACADEMICS ] A structured knowledge base — documented, organized, and built to be useful. PSU · CCIS · SE + Cybersecurity Track · 73/134 Credit.">
-    <link rel="canonical" href="https://shoug-tech.com/Academics/">
-    <meta property="og:title" content="SHOUG.TECH - Academics">
+        content="CYS405 | Chapter Chapter 1 Introduction to Ethical Hacking and Penetration Testing study material from Shoug&#x27;s Digital Garden.">
+    <link rel="canonical"
+        href="https://shoug-tech.com/Academics/cybersecurity/cys405/slide-breakdowns/01-chapter-1-introduction-to-ethical-hacking-and-penetration-testing/">
+    <meta property="og:title"
+        content="CYS405 | Chapter Chapter 1 Introduction to Ethical Hacking and Penetration Testing">
     <meta property="og:description"
-        content="Contact [ ACADEMICS ] A structured knowledge base — documented, organized, and built to be useful. PSU · CCIS · SE + Cybersecurity Track · 73/134 Credit.">
-    <meta property="og:url" content="https://shoug-tech.com/Academics/">
+        content="CYS405 | Chapter Chapter 1 Introduction to Ethical Hacking and Penetration Testing study material from Shoug&#x27;s Digital Garden.">
+    <meta property="og:url"
+        content="https://shoug-tech.com/Academics/cybersecurity/cys405/slide-breakdowns/01-chapter-1-introduction-to-ethical-hacking-and-penetration-testing/">
     <meta property="og:type" content="article">
     <meta property="og:image" content="https://shoug-tech.com/assets/og-banner.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SHOUG.TECH - Academics">
+    <meta name="twitter:title"
+        content="CYS405 | Chapter Chapter 1 Introduction to Ethical Hacking and Penetration Testing">
     <meta name="twitter:description"
-        content="Contact [ ACADEMICS ] A structured knowledge base — documented, organized, and built to be useful. PSU · CCIS · SE + Cybersecurity Track · 73/134 Credit.">
+        content="CYS405 | Chapter Chapter 1 Introduction to Ethical Hacking and Penetration Testing study material from Shoug&#x27;s Digital Garden.">
     <meta name="twitter:image" content="https://shoug-tech.com/assets/og-banner.png">
     <script
-        type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://shoug-tech.com/Academics/","name":"SHOUG.TECH - Academics","description":"Contact [ ACADEMICS ] A structured knowledge base — documented, organized, and built to be useful. PSU · CCIS · SE + Cybersecurity Track · 73/134 Credit.","isPartOf":{"@type":"WebSite","name":"Shoug's Digital Garden","url":"https://shoug-tech.com/"}}</script>
+        type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://shoug-tech.com/Academics/cybersecurity/cys405/slide-breakdowns/01-chapter-1-introduction-to-ethical-hacking-and-penetration-testing/","name":"CYS405 | Chapter Chapter 1 Introduction to Ethical Hacking and Penetration Testing","description":"CYS405 | Chapter Chapter 1 Introduction to Ethical Hacking and Penetration Testing study material from Shoug&#x27;s Digital Garden.","isPartOf":{"@type":"WebSite","name":"Shoug's Digital Garden","url":"https://shoug-tech.com/"}}</script>
 
-    <link rel="alternate" hreflang="en" href="https://shoug-tech.com/Academics/">
-    <link rel="alternate" hreflang="ar" href="https://shoug-tech.com/ar/Academics/">
-    <link rel="alternate" hreflang="x-default" href="https://shoug-tech.com/Academics/">
+    <link rel="alternate" hreflang="en"
+        href="https://shoug-tech.com/Academics/cybersecurity/cys405/slide-breakdowns/01-chapter-1-introduction-to-ethical-hacking-and-penetration-testing/">
+    <link rel="alternate" hreflang="ar"
+        href="https://shoug-tech.com/ar/Academics/cybersecurity/cys405/slide-breakdowns/01-chapter-1-introduction-to-ethical-hacking-and-penetration-testing/">
+    <link rel="alternate" hreflang="x-default"
+        href="https://shoug-tech.com/Academics/cybersecurity/cys405/slide-breakdowns/01-chapter-1-introduction-to-ethical-hacking-and-penetration-testing/">
 
 
     <link rel="stylesheet" href="/styles/mobile-fixes.css">
-</head>
 
 <body vid="9">
     <script>if (localStorage.getItem('shoug-theme') === 'light') document.body.classList.add('shoug-light-mode');</script>
+
 
 
     <header class="shoug-site-header">
@@ -1523,127 +1691,229 @@
     </header>
 
 
-    <main vid="51">
-        <div class="container" vid="52">
+    <div class="layout-wrapper" vid="24">
 
-            <section class="hero" vid="53">
-                <div class="hero-label mono" vid="54" data-ar-text="[ الدراسة ]">[ ACADEMICS ]</div>
-                <h1 class="display" vid="55" data-ar-text="قاعدة معرفية منظمة — موثقة، مرتبة، ومصممة لتكون مفيدة.">A
-                    structured knowledge base — documented, organized, and built to be
-                    useful.</h1>
 
-                <div class="hero-meta mono" vid="56">
-                    <strong vid="57">PSU</strong>
-                    <span vid="58">·</span>
-                    <strong vid="59">CCIS</strong>
-                    <span vid="60">·</span>
-                    <span vid="61" data-ar-text="هندسة البرمجيات + مسار الأمن السيبراني">SE + <span class="highlight"
-                            vid="62">Cybersecurity Track</span></span>
-                    <span vid="63">·</span>
-                    <span vid="64" data-ar-text="73/134 ساعة معتمدة">73/134 Credit Hours</span>
+        <nav class="sidebar academic-sidebar" aria-label="Academic directory">
+            <div class="sidebar-header"><span class="sidebar-title">SYSTEM_DIRECTORY</span><button
+                    class="sidebar-collapse-button" type="button" data-sidebar-collapse aria-expanded="true"><span
+                        class="collapse-icon">&lt;</span></button></div>
+            <div class="file-tree">
+                <ul class="tree-node">
+                    <li class="tree-item root-dir"><a class="tree-course-link" href="/academics/">ACADEMICS/</a></li>
+                    <li class="tree-item"><a class="tree-file" href="/academic-plan-themes/academic-plan/">ACADEMIC
+                            PLAN</a></li>
+                    <li class="tree-item"><button class="tree-course-link tree-toggle-button" type="button"
+                            data-tree-toggle="tree-computer-science" aria-expanded="false"><span
+                                class="tree-toggle">[+]</span> COMPUTER SCIENCE/</button></li>
+                    <ul id="tree-computer-science" class="tree-children">
+                        <li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs101/">CS101</a>
+                        </li>
+                        <li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs102/">CS102</a>
+                        </li>
+                        <li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs210/">CS210</a>
+                        </li>
+                        <li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs285/">CS285</a>
+                        </li>
+                        <li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs330/">CS330</a>
+                        </li>
+                        <li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs331/">CS331</a>
+                        </li>
+                        <li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs340/">CS340</a>
+                        </li>
+                    </ul>
+                    <li class="tree-item"><button class="tree-course-link tree-toggle-button" type="button"
+                            data-tree-toggle="tree-software-engineering" aria-expanded="false"><span
+                                class="tree-toggle">[+]</span> SOFTWARE ENGINEERING/</button></li>
+                    <ul id="tree-software-engineering" class="tree-children">
+                        <li class="tree-item"><a class="tree-file"
+                                href="/academics/software-engineering/se201/">SE201</a></li>
+                        <li class="tree-item"><a class="tree-file"
+                                href="/academics/software-engineering/se311/">SE311</a></li>
+                        <li class="tree-item"><a class="tree-file"
+                                href="/academics/software-engineering/se365/">SE365</a></li>
+                        <li class="tree-item"><a class="tree-file"
+                                href="/academics/software-engineering/se371/">SE371</a></li>
+                        <li class="tree-item"><a class="tree-file"
+                                href="/academics/software-engineering/se322/">SE322</a></li>
+                        <li class="tree-item"><a class="tree-file"
+                                href="/academics/software-engineering/se401/">SE401</a></li>
+                        <li class="tree-item"><a class="tree-file"
+                                href="/academics/software-engineering/se411/">SE411</a></li>
+                        <li class="tree-item"><a class="tree-file"
+                                href="/academics/software-engineering/se423/">SE423</a></li>
+                        <li class="tree-item"><a class="tree-file"
+                                href="/academics/software-engineering/se499/">SE499</a></li>
+                    </ul>
+                    <li class="tree-item dir-open"><button class="tree-course-link tree-toggle-button" type="button"
+                            data-tree-toggle="tree-cybersecurity" aria-expanded="true"><span
+                                class="tree-toggle">[-]</span> CYBERSECURITY/</button></li>
+                    <ul id="tree-cybersecurity" class="tree-children is-open">
+                        <li class="tree-item"><a class="tree-file" href="/academics/cybersecurity/cys401/">CYS401</a>
+                        </li>
+                        <li class="tree-item"><a class="tree-file" href="/academics/cybersecurity/cys402/">CYS402</a>
+                        </li>
+                        <li class="tree-item"><a class="tree-file" href="/academics/cybersecurity/cys403/">CYS403</a>
+                        </li>
+                        <li class="tree-item file-active"><a class="tree-file"
+                                href="/academics/cybersecurity/cys405/"><span class="status-dot"></span>CYS405</a></li>
+                        <ul class="tree-children section-children">
+                            <li class="tree-item tree-section"><a class="tree-file"
+                                    href="/academics/cybersecurity/cys405/" data-en-text="OVERVIEW"
+                                    data-ar-text="نظرة عامة">OVERVIEW</a></li>
+                            <li class="tree-item tree-section file-active"><a class="tree-file"
+                                    href="/academics/cybersecurity/cys405/slide-breakdowns/"
+                                    data-en-text="SLIDE BREAKDOWNS" data-ar-text="تفكيك الشرائح"><span
+                                        class="status-dot"></span>SLIDE BREAKDOWNS</a></li>
+                            <ul class="tree-children item-children is-open">
+                                <li class="tree-item tree-viewer file-active"><a class="tree-file"
+                                        href="/academics/cybersecurity/cys405/slide-breakdowns/01-chapter-1-introduction-to-ethical-hacking-and-penetration-testing/"><span
+                                            class="status-dot"></span>Chapter 1 Introduction to Ethical Hacking and
+                                        Penetration Testing</a></li>
+                                <li class="tree-item tree-viewer"><a class="tree-file"
+                                        href="/academics/cybersecurity/cys405/slide-breakdowns/02-chapter-2-information-gathering-footprinting-and-reconnaissance/">Chapter
+                                        2 Information Gathering, Footprinting and Reconnaissance</a></li>
+                                <li class="tree-item tree-viewer"><a class="tree-file"
+                                        href="/academics/cybersecurity/cys405/slide-breakdowns/03-chapter-3-scanning/">Chapter
+                                        3 Scanning</a></li>
+                                <li class="tree-item tree-viewer"><a class="tree-file"
+                                        href="/academics/cybersecurity/cys405/slide-breakdowns/04-chapter-4-enumeration/">Chapter
+                                        4 Enumeration</a></li>
+                                <li class="tree-item tree-viewer"><a class="tree-file"
+                                        href="/academics/cybersecurity/cys405/slide-breakdowns/05-chapter-5-vulnerability-analysis/">Chapter
+                                        5 Vulnerability Analysis</a></li>
+                                <li class="tree-item tree-viewer"><a class="tree-file"
+                                        href="/academics/cybersecurity/cys405/slide-breakdowns/06-chapter-6-system-hacking/">Chapter
+                                        6 System Hacking</a></li>
+                                <li class="tree-item tree-viewer"><a class="tree-file"
+                                        href="/academics/cybersecurity/cys405/slide-breakdowns/07-chapter-7-malware/">Chapter
+                                        7 Malware</a></li>
+                                <li class="tree-item tree-viewer"><a class="tree-file"
+                                        href="/academics/cybersecurity/cys405/slide-breakdowns/08-chapter-8-web-and-database-hacking/">Chapter
+                                        8 Web and Database Hacking</a></li>
+                                <li class="tree-item tree-viewer"><a class="tree-file"
+                                        href="/academics/cybersecurity/cys405/slide-breakdowns/09-chapter-9-social-engineering/">Chapter
+                                        9 Social Engineering</a></li>
+                                <li class="tree-item tree-viewer"><a class="tree-file"
+                                        href="/academics/cybersecurity/cys405/slide-breakdowns/10-chapter-10-sniffing-and-dos-attacks/">Chapter
+                                        10 Sniffing and Dos Attacks</a></li>
+                                <li class="tree-item tree-viewer"><a class="tree-file"
+                                        href="/academics/cybersecurity/cys405/slide-breakdowns/11-chapter-11-wireless-network-hacking/">Chapter
+                                        11 Wireless Network Hacking</a></li>
+                            </ul>
+                            <li class="tree-item tree-section"><a class="tree-file"
+                                    href="/academics/cybersecurity/cys405/slides/" data-en-text="SLIDES"
+                                    data-ar-text="الشرائح">SLIDES</a></li>
+                            <li class="tree-item tree-section"><a class="tree-file"
+                                    href="/academics/cybersecurity/cys405/extra-resources/"
+                                    data-en-text="STUDY MATERIAL" data-ar-text="المواد الدراسية">STUDY MATERIAL</a></li>
+                            <li class="tree-item tree-section"><a class="tree-file"
+                                    href="/academics/cybersecurity/cys405/quizzes/" data-en-text="EXAMS"
+                                    data-ar-text="الاختبارات">EXAMS</a></li>
+                        </ul>
+                        <li class="tree-item"><a class="tree-file" href="/academics/cybersecurity/cys406/">CYS406</a>
+                        </li>
+                        <li class="tree-item"><button class="tree-course-link tree-toggle-button" type="button"
+                                data-tree-toggle="tree-other-courses" aria-expanded="false"><span
+                                    class="tree-toggle">[+]</span> OTHER COURSES/</button></li>
+                        <ul id="tree-other-courses" class="tree-children">
+                            <li class="tree-item"><button class="tree-course-link tree-toggle-button" type="button"
+                                    data-tree-toggle="tree-english" aria-expanded="false"><span
+                                        class="tree-toggle">[+]</span> ENGLISH HUB/</button></li>
+                            <ul id="tree-english" class="tree-children">
+                                <li class="tree-item"><a class="tree-file"
+                                        href="/academics/other-courses/english/eng101/">ENG101</a></li>
+                                <li class="tree-item"><a class="tree-file"
+                                        href="/academics/other-courses/english/eng103/">ENG103</a></li>
+                            </ul>
+                            <li class="tree-item"><a class="tree-file"
+                                    href="/academics/other-courses/ethcs303/">ETHCS303</a></li>
+                            <li class="tree-item"><a class="tree-file"
+                                    href="/academics/other-courses/stat101/">STAT101</a></li>
+                            <li class="tree-item"><a class="tree-file"
+                                    href="/academics/other-courses/math221/">MATH221</a></li>
+                            <li class="tree-item"><a class="tree-file"
+                                    href="/academics/other-courses/com201/">COM201</a></li>
+                            <li class="tree-item"><a class="tree-file"
+                                    href="/academics/other-courses/isc113/">ISC113</a></li>
+                            <li class="tree-item"><a class="tree-file"
+                                    href="/academics/other-courses/phy105/">PHY105</a></li>
+                            <li class="tree-item"><a class="tree-file"
+                                    href="/academics/other-courses/phy205/">PHY205</a></li>
+                            <li class="tree-item"><a class="tree-file"
+                                    href="/academics/other-courses/sci101/">SCI101</a></li>
+                        </ul>
+                    </ul>
+            </div>
+        </nav>
+        <main class="content-area" vid="58">
+
+
+            <div class="top-bar uppercase" vid="59">
+                <div class="breadcrumb"><a class="breadcrumb-link" href="/academics/">Academics</a> <span
+                        class="separator">/</span> <a class="breadcrumb-link"
+                        href="/academics/cybersecurity/">Cybersecurity</a> <span class="separator">/</span> <a
+                        class="breadcrumb-link" href="/academics/cybersecurity/cys405/">CYS405</a> <span
+                        class="separator">/</span> <a class="breadcrumb-link"
+                        href="/academics/cybersecurity/cys405/slide-breakdowns/">Slide Breakdowns</a> <span
+                        class="separator">/</span> <span class="current">Chapter 1 Introduction to Ethical Hacking and
+                        Penetration Testing</span></div>
+                <div class="sys-time" id="clock" vid="70">
+                    SYS_TIME [ 00 00 00 ]
                 </div>
-            </section>
-
-            <section class="hub-grid" vid="65">
+            </div>
 
 
-                <a href="/academics/computer-science/" class="track-card" vid="66">
-                    <div class="card-header" vid="67">
-                        <h2 class="card-title display" vid="68" data-ar-text="علوم الحاسب">COMPUTER SCIENCE</h2>
-                        <div class="card-count mono" vid="69">07</div>
-                    </div>
-                    <div class="card-body" vid="70">
-                        <div class="card-tags mono" vid="71">
-                            <span class="tag-item" vid="72" data-ar-text="هياكل البيانات">Data Structures</span>
-                            <span class="tag-item" vid="73" data-ar-text="نظم التشغيل">OS</span>
-                            <span class="tag-item" vid="74" data-ar-text="قواعد البيانات">Databases</span>
-                            <span class="tag-item" vid="75" data-ar-text="الرياضيات المتقطعة">Discrete Math</span>
-                        </div>
-                    </div>
-                    <div class="card-footer" vid="76">
-                        <svg class="card-arrow" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"
-                            vid="77">
-                            <line x1="5" y1="12" x2="19" y2="12" vid="78"></line>
-                            <polyline points="12 5 19 12 12 19" vid="79"></polyline>
-                        </svg>
-                    </div>
-                </a>
+            <div class="page-header" vid="73">
+                <div class="ch-label uppercase">ITEM_01 // SLIDE BREAKDOWNS</div>
+                <h1 class="ch-title uppercase">Chapter 1 Introduction to Ethical Hacking and Penetration Testing</h1>
+                <div class="action-buttons"><a class="btn btn-primary"
+                        href="/academics/cybersecurity/cys405/slide-breakdowns/01-chapter-1-introduction-to-ethical-hacking-and-penetration-testing/chapter-1-introduction-to-ethical-hacking-and-penetration-testing.html"
+                        target="_blank" rel="noopener noreferrer">[ OPEN IN NEW TAB -&gt; ]</a><a
+                        class="btn btn-secondary" href="/academics/cybersecurity/cys405/slide-breakdowns/">[ &lt;- BACK
+                        TO INDEX ]</a></div>
+            </div>
 
 
-                <a href="/academics/software-engineering/" class="track-card" vid="80">
-                    <div class="card-header" vid="81">
-                        <h2 class="card-title display" vid="82" data-ar-text="هندسة البرمجيات">SOFTWARE ENGINEERING</h2>
-                        <div class="card-count mono" vid="83">07</div>
-                    </div>
-                    <div class="card-body" vid="84">
-                        <div class="card-tags mono" vid="85">
-                            <span class="tag-item" vid="86" data-ar-text="المتطلبات">Requirements</span>
-                            <span class="tag-item" vid="87" data-ar-text="العمارة البرمجية">Architecture</span>
-                            <span class="tag-item" vid="88" data-ar-text="الأنظمة">Systems</span>
-                        </div>
-                    </div>
-                    <div class="card-footer" vid="89">
-                        <svg class="card-arrow" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"
-                            vid="90">
-                            <line x1="5" y1="12" x2="19" y2="12" vid="91"></line>
-                            <polyline points="12 5 19 12 12 19" vid="92"></polyline>
-                        </svg>
-                    </div>
-                </a>
+            <div class="nav-strip uppercase"><span></span><a
+                    href="/academics/cybersecurity/cys405/slide-breakdowns/02-chapter-2-information-gathering-footprinting-and-reconnaissance/"
+                    class="nav-link next">NEXT -&gt;</a></div>
 
 
-                <a href="/academics/cybersecurity/" class="track-card cyber" vid="93">
-                    <div class="card-header" vid="94">
-                        <h2 class="card-title display" vid="95" data-ar-text="الأمن السيبراني">CYBERSECURITY</h2>
-                        <div class="card-count mono" vid="96">05</div>
+            <div class="embed-area-wrapper" vid="82">
+                <div class="embed-container" id="embedded-content">
+                    <div class="rendered-content" data-lang-panel="en"><iframe class="embed-frame legacy-html-frame"
+                            src="/academics/cybersecurity/cys405/slide-breakdowns/01-chapter-1-introduction-to-ethical-hacking-and-penetration-testing/chapter-1-introduction-to-ethical-hacking-and-penetration-testing.html"
+                            loading="lazy"
+                            title="Chapter 1 Introduction to Ethical Hacking and Penetration Testing"></iframe>
                     </div>
-                    <div class="card-body" vid="97">
-                        <div class="card-tags mono" vid="98">
-                            <span class="tag-item" vid="99" data-ar-text="اختبار الاختراق">Penetration Testing</span>
-                            <span class="tag-item" vid="100" data-ar-text="التشفير وأمن الشبكات">Cryptography</span>
-                            <span class="tag-item" vid="101" data-ar-text="إدارة المخاطر والحوكمة">Risk
-                                Management</span>
-                        </div>
+                    <div class="rendered-content" data-lang-panel="ar" hidden><iframe
+                            class="embed-frame legacy-html-frame"
+                            src="/academics/cybersecurity/cys405/slide-breakdowns/01-chapter-1-introduction-to-ethical-hacking-and-penetration-testing/chapter-1-introduction-to-ethical-hacking-and-penetration-testing.html"
+                            loading="lazy"
+                            title="Chapter 1 Introduction to Ethical Hacking and Penetration Testing"></iframe>
                     </div>
-                    <div class="card-footer" vid="102">
-                        <svg class="card-arrow" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"
-                            vid="103">
-                            <line x1="5" y1="12" x2="19" y2="12" vid="104"></line>
-                            <polyline points="12 5 19 12 12 19" vid="105"></polyline>
-                        </svg>
-                    </div>
-                </a>
-
-
-                <a href="/academics/other-courses/" class="track-card" vid="106">
-                    <div class="card-header" vid="107">
-                        <h2 class="card-title display" vid="108" data-ar-text="مواد أخرى">OTHER COURSES</h2>
-                        <div class="card-count mono" vid="109">06</div>
-                    </div>
-                    <div class="card-body" vid="110">
-                        <div class="card-tags mono" vid="111">
-                            <span class="tag-item" vid="112" data-ar-text="الأخلاقيات">Ethics</span>
-                            <span class="tag-item" vid="113" data-ar-text="الفيزياء">Physics</span>
-                            <span class="tag-item" vid="114" data-ar-text="الكتابة">Writing</span>
-                            <span class="tag-item" vid="115" data-ar-text="عام">General</span>
-                        </div>
-                    </div>
-                    <div class="card-footer" vid="116">
-                        <svg class="card-arrow" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"
-                            vid="117">
-                            <line x1="5" y1="12" x2="19" y2="12" vid="118"></line>
-                            <polyline points="12 5 19 12 12 19" vid="119"></polyline>
-                        </svg>
-                    </div>
-                </a>
-
-            </section>
-        </div>
+                </div>
+            </div>
+    </div>
+    </div>
+    </div>
     </main>
+    </div>
+
+    <script vid="90">
+
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            document.getElementById('clock').textContent = 'SYS_TIME [ ' + hours + '  ' + minutes + '  ' + seconds + ' ]';
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
 
 
     <footer class="shoug-site-footer">
@@ -1679,8 +1949,6 @@
     </footer>
 
 
-
-
     <script>
         (function () {
             function normalizeLabel(value) {
@@ -1700,11 +1968,8 @@
             function syncLanguagePanels(lang) {
                 var panels = Array.prototype.slice.call(document.querySelectorAll('[data-lang-panel]'));
                 if (!panels.length) return;
-                var hasRequestedPanel = panels.some(function (panel) {
-                    return panel.getAttribute('data-lang-panel') === lang;
-                });
                 panels.forEach(function (panel) {
-                    panel.hidden = hasRequestedPanel && panel.getAttribute('data-lang-panel') !== lang;
+                    panel.hidden = panel.getAttribute('data-lang-panel') !== 'en';
                 });
             }
 
@@ -1833,14 +2098,14 @@
                     },
                     trackTitles: {
                         'computer science': '7 courses.<br>Structured, documented,<br>and ready to use.',
-                        'software engineering': '7 courses.<br>Requirements, design,<br>and engineering practice.',
-                        cybersecurity: '5 courses.<br>Security foundations,<br>threats, and defense.',
+                        'software engineering': '4 courses.<br>Requirements, design,<br>and engineering practice.',
+                        cybersecurity: '1 course.<br>Security foundations,<br>threats, and defense.',
                         'other courses': '4 courses.<br>Writing, ethics,<br>physics, and foundations.'
                     },
                     trackMeta: {
                         'computer science': ['CS Track', '7 Courses', 'Programming', 'Networks', 'Databases'],
-                        'software engineering': ['SE Track', '7 Courses', 'Process', 'Requirements', 'Design'],
-                        cybersecurity: ['Cyber Track', '5 Courses', 'Security', 'Risk', 'Defense'],
+                        'software engineering': ['SE Track', '4 Courses', 'Process', 'Requirements', 'Design'],
+                        cybersecurity: ['Cyber Track', '1 Course', 'Security', 'Risk', 'Defense'],
                         'other courses': ['General Track', '4 Courses', 'Writing', 'Ethics', 'Science']
                     }
                 },
@@ -1908,14 +2173,14 @@
                     },
                     trackTitles: {
                         'computer science': '7 مواد.<br>مرتبة، موثقة،<br>وجاهزة للاستخدام.',
-                        'software engineering': 'مادتين.<br>المتطلبات، التصميم،<br>وممارسة الهندسة.',
-                        cybersecurity: '5 مواد.<br>أساسيات الأمن،<br>والتهديدات، والدفاع.',
+                        'software engineering': '4 مواد.<br>المتطلبات، التصميم،<br>وممارسة الهندسة.',
+                        cybersecurity: 'مادة وحدة.<br>أساسيات الأمن،<br>والتهديدات، والدفاع.',
                         'other courses': '4 مواد.<br>الكتابة، والأخلاقيات،<br>والفيزياء، والأساسيات.'
                     },
                     trackMeta: {
                         'computer science': ['مسار علوم الحاسب', '7 مواد', 'برمجة', 'شبكات', 'قواعد بيانات'],
-                        'software engineering': ['مسار هندسة البرمجيات', 'مادتين', 'العمليات', 'المتطلبات', 'التصميم'],
-                        cybersecurity: ['مسار الأمن السيبراني', '5 مواد', 'الأمن', 'المخاطر', 'الدفاع'],
+                        'software engineering': ['مسار هندسة البرمجيات', '4 مواد', 'العمليات', 'المتطلبات', 'التصميم'],
+                        cybersecurity: ['مسار الأمن السيبراني', 'مادة وحدة', 'الأمن', 'المخاطر', 'الدفاع'],
                         'other courses': ['مسار عام', '4 مواد', 'الكتابة', 'الأخلاقيات', 'العلوم']
                     }
                 }
