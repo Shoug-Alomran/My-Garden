@@ -8,7 +8,7 @@
 <script>if (localStorage.getItem('shoug-theme') === 'light') { document.documentElement.style.background = '#f6f4fb'; document.documentElement.style.color = '#16111f'; }</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHOUG.TECH | SE322 Mindmaps</title>
+    <title>SHOUG.TECH | SE322 Diagram Video Explanation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -1143,27 +1143,27 @@
     <link rel="stylesheet" href="/styles/light-mode.css">
 
     <meta name="description"
-        content="SHOUG.TECH | SE322 Mindmaps study material from Shoug&#x27;s Digital Garden.">
-    <link rel="canonical" href="https://shoug-tech.com/academics/software-engineering/se322/extra-resources/mindmaps/">
-    <meta property="og:title" content="SHOUG.TECH | SE322 Mindmaps">
+        content="SHOUG.TECH | SE322 Diagram Video Explanation study material from Shoug&#x27;s Digital Garden.">
+    <link rel="canonical" href="https://shoug-tech.com/academics/software-engineering/se322/extra-resources/diagram-video-explanation/">
+    <meta property="og:title" content="SHOUG.TECH | SE322 Diagram Video Explanation">
     <meta property="og:description"
-        content="SHOUG.TECH | SE322 Mindmaps study material from Shoug&#x27;s Digital Garden.">
-    <meta property="og:url" content="https://shoug-tech.com/academics/software-engineering/se322/extra-resources/mindmaps/">
+        content="SHOUG.TECH | SE322 Diagram Video Explanation study material from Shoug&#x27;s Digital Garden.">
+    <meta property="og:url" content="https://shoug-tech.com/academics/software-engineering/se322/extra-resources/diagram-video-explanation/">
     <meta property="og:type" content="article">
     <meta property="og:image" content="https://shoug-tech.com/assets/og-banner.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SHOUG.TECH | SE322 Mindmaps">
+    <meta name="twitter:title" content="SHOUG.TECH | SE322 Diagram Video Explanation">
     <meta name="twitter:description"
-        content="SHOUG.TECH | SE322 Mindmaps study material from Shoug&#x27;s Digital Garden.">
+        content="SHOUG.TECH | SE322 Diagram Video Explanation study material from Shoug&#x27;s Digital Garden.">
     <meta name="twitter:image" content="https://shoug-tech.com/assets/og-banner.png">
     <script
-        type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://shoug-tech.com/academics/software-engineering/se322/extra-resources/mindmaps/","name":"SHOUG.TECH | SE322 Mindmaps","description":"SHOUG.TECH | SE322 Mindmaps study material from Shoug&#x27;s Digital Garden.","isPartOf":{"@type":"WebSite","name":"Shoug's Digital Garden","url":"https://shoug-tech.com/"}}</script>
+        type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","url":"https://shoug-tech.com/academics/software-engineering/se322/extra-resources/diagram-video-explanation/","name":"SHOUG.TECH | SE322 Diagram Video Explanation","description":"SHOUG.TECH | SE322 Diagram Video Explanation study material from Shoug&#x27;s Digital Garden.","isPartOf":{"@type":"WebSite","name":"Shoug's Digital Garden","url":"https://shoug-tech.com/"}}</script>
 
     <link rel="alternate" hreflang="en"
-        href="https://shoug-tech.com/academics/software-engineering/se322/extra-resources/mindmaps/">
-    <link rel="alternate" hreflang="ar" href="https://shoug-tech.com/academics/software-engineering/se322/extra-resources/mindmaps/?lang=ar">
+        href="https://shoug-tech.com/academics/software-engineering/se322/extra-resources/diagram-video-explanation/">
+    <link rel="alternate" hreflang="ar" href="https://shoug-tech.com/academics/software-engineering/se322/extra-resources/diagram-video-explanation/?lang=ar">
     <link rel="alternate" hreflang="x-default"
-        href="https://shoug-tech.com/academics/software-engineering/se322/extra-resources/mindmaps/">
+        href="https://shoug-tech.com/academics/software-engineering/se322/extra-resources/diagram-video-explanation/">
 
 
     <link rel="stylesheet" href="/styles/mobile-fixes.css">
@@ -1179,6 +1179,50 @@
 
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#050508">
+    <style id="dve-styles">
+        .dve-wrap { padding: 28px 40px 48px; display: flex; flex-direction: column; gap: 24px; }
+        .dve-heading { font-family: var(--font-display); font-size: 26px; font-weight: 700; letter-spacing: .02em; color: var(--text-primary); }
+        .dve-lede { margin-top: 6px; color: var(--text-secondary); line-height: 1.6; }
+        .dve-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 20px; }
+        .dve-card { display: flex; flex-direction: column; background: var(--bg-surface); border: 1px solid var(--border-med); transition: border-color .2s, transform .2s; overflow: hidden; }
+        .dve-card:hover { border-color: var(--border-purple); transform: translateY(-2px); }
+        .dve-player, .dve-frame { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; padding: 0; background: #000; cursor: pointer; overflow: hidden; }
+        .dve-player img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: .85; transition: opacity .2s, transform .3s; }
+        .dve-player:hover img, .dve-player:focus-visible img { opacity: 1; transform: scale(1.03); }
+        .dve-player:focus-visible { outline: 2px solid var(--brand-purple); outline-offset: -2px; }
+        .dve-play { position: absolute; inset: 0; margin: auto; width: 64px; height: 64px; display: grid; place-items: center; background: rgba(5, 2, 10, .72); border: 1px solid var(--border-purple); border-radius: 50%; }
+        .dve-play svg { width: 28px; height: 28px; fill: var(--text-purple-bright); margin-left: 3px; }
+        .dve-player:hover .dve-play { background: var(--brand-purple); }
+        .dve-player:hover .dve-play svg { fill: #fff; }
+        .dve-body { display: flex; flex-direction: column; gap: 10px; padding: 18px 20px 20px; flex: 1; }
+        .dve-meta { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11px; }
+        .dve-num { color: var(--text-tertiary); }
+        .dve-tag { padding: 2px 8px; border: 1px solid var(--border-purple); color: var(--text-purple-bright); letter-spacing: .08em; }
+        .dve-tag-behavioral { border-color: rgba(255, 42, 75, .45); color: var(--alert-red); }
+        .dve-title { font-family: var(--font-display); font-size: 21px; font-weight: 700; color: var(--text-primary); }
+        .dve-blurb { color: var(--text-secondary); line-height: 1.6; flex: 1; }
+        .dve-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding-top: 12px; border-top: 1px solid var(--border-dim); font-family: var(--font-mono); font-size: 12px; }
+        .dve-source { color: var(--text-tertiary); }
+        .dve-link { color: var(--text-purple-bright); }
+        .dve-link:hover { text-decoration: underline; }
+        body.shoug-light-mode .dve-link, body.shoug-light-mode .dve-tag { color: #8a1bb3; }
+        body.shoug-light-mode .dve-tag-behavioral { color: #c8102e; }
+        .dve-wrap { gap: 40px; }
+        .dve-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+        .dve-chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--border-med); font-family: var(--font-mono); font-size: 12px; color: var(--text-secondary); transition: border-color .2s, color .2s; }
+        .dve-chip:hover, .dve-chip:focus-visible { border-color: var(--border-purple); color: var(--text-primary); }
+        .dve-chip-count { color: var(--text-purple-bright); }
+        .dve-group { display: flex; flex-direction: column; gap: 16px; scroll-margin-top: 80px; }
+        .dve-group-head { padding-bottom: 12px; border-bottom: 1px solid var(--border-dim); }
+        .dve-group-title { display: flex; align-items: baseline; gap: 12px; font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--text-primary); }
+        .dve-group-count { font-family: var(--font-mono); font-size: 12px; font-weight: 400; color: var(--text-tertiary); }
+        .dve-group-sub { margin-top: 4px; color: var(--text-secondary); }
+        .dve-tag-process { border-color: var(--border-med); color: var(--text-secondary); }
+        body.shoug-light-mode .dve-tag-process { color: #534a61; }
+        body.shoug-light-mode .dve-chip-count { color: #8a1bb3; }
+        @media (max-width: 1024px) { .dve-wrap { padding: 24px 24px 40px; } }
+        @media (max-width: 600px) { .dve-wrap { padding: 18px 16px 32px; } .dve-grid { gap: 16px; } .dve-body { padding: 14px 16px 16px; } .dve-heading { font-size: 22px; } .dve-wrap { gap: 32px; } .dve-group-title { font-size: 20px; } }
+    </style>
 </head>
 
 <body>
@@ -1232,16 +1276,15 @@
     </header>
     <div class="app-layout">
 
-                <nav class="sidebar academic-sidebar" aria-label="Academic directory"><div class="sidebar-header"><span class="sidebar-title">SYSTEM_DIRECTORY</span><button class="sidebar-collapse-button" type="button" data-sidebar-collapse aria-expanded="true"><span class="collapse-icon">&lt;</span></button></div><div class="file-tree"><ul class="tree-node"><li class="tree-item root-dir"><a class="tree-course-link" href="/academics/">ACADEMICS/</a></li><li class="tree-item"><a class="tree-file" href="/academic-plan-themes/academic-plan/">ACADEMIC PLAN</a></li><li class="tree-item"><button class="tree-course-link tree-toggle-button" type="button" data-tree-toggle="tree-computer-science" aria-expanded="false"><span class="tree-toggle">[+]</span> COMPUTER SCIENCE/</button></li><ul id="tree-computer-science" class="tree-children"><li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs101/">CS101</a></li><li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs102/">CS102</a></li><li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs210/">CS210</a></li><li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs285/">CS285</a></li><li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs330/">CS330</a></li><li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs331/">CS331</a></li><li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs340/">CS340</a></li></ul><li class="tree-item dir-open"><button class="tree-course-link tree-toggle-button" type="button" data-tree-toggle="tree-software-engineering" aria-expanded="true"><span class="tree-toggle">[-]</span> SOFTWARE ENGINEERING/</button></li><ul id="tree-software-engineering" class="tree-children is-open"><li class="tree-item"><a class="tree-file" href="/academics/software-engineering/se201/">SE201</a></li><li class="tree-item"><a class="tree-file" href="/academics/software-engineering/se311/">SE311</a></li><li class="tree-item file-active"><a class="tree-file" href="/academics/software-engineering/se322/"><span class="status-dot"></span>SE322</a></li><ul class="tree-children section-children"><li class="tree-item tree-section"><a class="tree-file" href="/academics/software-engineering/se322/" data-en-text="OVERVIEW" data-ar-text="نظرة عامة">OVERVIEW</a></li><li class="tree-item tree-section"><a class="tree-file" href="/academics/software-engineering/se322/slide-breakdowns/" data-en-text="SLIDE BREAKDOWNS" data-ar-text="تفكيك الشرائح">SLIDE BREAKDOWNS</a></li><li class="tree-item tree-section"><a class="tree-file" href="/academics/software-engineering/se322/slides/" data-en-text="SLIDES" data-ar-text="الشرائح">SLIDES</a></li><li class="tree-item tree-section file-active"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/" data-en-text="STUDY MATERIAL" data-ar-text="المواد الدراسية"><span class="status-dot"></span>STUDY MATERIAL</a></li><ul class="tree-children item-children is-open"><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/summary/">SUMMARY</a></li><li class="tree-item tree-viewer file-active"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/"><span class="status-dot"></span>MINDMAPS</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/01-introduction-to-software-design-and-architecture/">Chapter 1: Introduction to Software Design and Architecture</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/02-software-architecture/">Chapter 2: Software Architecture</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/03-quality-attributes/">Chapter 3: Quality Attributes</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/04-architecture-patterns/">Chapter 4: Architecture Patterns</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/05-principles-of-detailed-design/">Chapter 5: Principles of Detailed Design</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/06-creational-design-patterns/">Chapter 6: Creational Design Patterns</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/07-structural-design-patterns/">Chapter 7: Structural Design Patterns</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/07-behavioral-design-patterns/">Chapter 7: Behavioral Design Patterns</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/08-architecture-evaluation/">Chapter 8: Architecture Evaluation</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/09-architecture-documentation/">Chapter 9: Architecture Documentation</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/activity/">ACTIVITY</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/">LISTING VAULT</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/01-introduction-to-software-design-and-architecture/">Chapter 1: Introduction to Software Design and Architecture Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/02-software-architecture/">Chapter 2: Software Architecture Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/03-quality-attributes/">Chapter 3: Quality Attributes Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/04-architecture-patterns/">Chapter 4: Architecture Patterns Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/05-principles-of-detailed-design/">Chapter 5: Principles of Detailed Design Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/06-creational-design-patterns/">Chapter 6: Creational Design Patterns Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/07-structural-design-patterns/">Chapter 7: Structural Design Patterns Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/07-behavioral-design-patterns/">Chapter 7: Behavioral Design Patterns Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/08-architecture-evaluation/">Chapter 8: Architecture Evaluation Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/09-architecture-documentation/">Chapter 9: Architecture Documentation Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/diagram-video-explanation/">DIAGRAM VIDEO EXPLANATION</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/4-plus-1-view-model/">4+1 VIEW MODEL MAP</a></li></ul><li class="tree-item tree-section"><a class="tree-file" href="/academics/software-engineering/se322/exams/" data-en-text="EXAMS" data-ar-text="الاختبارات">EXAMS</a></li></ul><li class="tree-item"><a class="tree-file" href="/academics/software-engineering/se365/">SE365</a></li><li class="tree-item"><a class="tree-file" href="/academics/software-engineering/se371/">SE371</a></li><li class="tree-item"><a class="tree-file" href="/academics/software-engineering/se401/">SE401</a></li><li class="tree-item"><a class="tree-file" href="/academics/software-engineering/se411/">SE411</a></li><li class="tree-item"><a class="tree-file" href="/academics/software-engineering/se423/">SE423</a></li><li class="tree-item"><a class="tree-file" href="/academics/software-engineering/se499/">SE499</a></li></ul><li class="tree-item cyber-track"><button class="tree-course-link tree-toggle-button" type="button" data-tree-toggle="tree-cybersecurity" aria-expanded="false"><span class="tree-toggle">[+]</span> CYBERSECURITY/</button></li><ul id="tree-cybersecurity" class="tree-children"><li class="tree-item"><a class="tree-file" href="/academics/cybersecurity/cys401/">CYS401</a></li><li class="tree-item"><a class="tree-file" href="/academics/cybersecurity/cys402/">CYS402</a></li><li class="tree-item"><a class="tree-file" href="/academics/cybersecurity/cys403/">CYS403</a></li><li class="tree-item"><a class="tree-file" href="/academics/cybersecurity/cys405/">CYS405</a></li><li class="tree-item"><a class="tree-file" href="/academics/cybersecurity/cys406/">CYS406</a></li></ul><li class="tree-item"><button class="tree-course-link tree-toggle-button" type="button" data-tree-toggle="tree-math" aria-expanded="false"><span class="tree-toggle">[+]</span> MATH/</button></li><ul id="tree-math" class="tree-children"><li class="tree-item"><a class="tree-file" href="/academics/math/stat101/">STAT101</a></li><li class="tree-item"><a class="tree-file" href="/academics/math/math221/">MATH221</a></li><li class="tree-item"><a class="tree-file" href="/academics/math/phy105/">PHY105</a></li><li class="tree-item"><a class="tree-file" href="/academics/math/phy205/">PHY205</a></li><li class="tree-item"><a class="tree-file" href="/academics/math/sci101/">SCI101</a></li></ul><li class="tree-item"><button class="tree-course-link tree-toggle-button" type="button" data-tree-toggle="tree-other-courses" aria-expanded="false"><span class="tree-toggle">[+]</span> OTHER COURSES/</button></li><ul id="tree-other-courses" class="tree-children"><li class="tree-item"><button class="tree-course-link tree-toggle-button" type="button" data-tree-toggle="tree-english" aria-expanded="false"><span class="tree-toggle">[+]</span> ENGLISH HUB/</button></li><ul id="tree-english" class="tree-children"><li class="tree-item"><a class="tree-file" href="/academics/other-courses/english/" data-en-text="OVERVIEW" data-ar-text="نظرة عامة">OVERVIEW</a></li><li class="tree-item"><a class="tree-file" href="/academics/other-courses/english/eng101/">ENG101</a></li><li class="tree-item"><a class="tree-file" href="/academics/other-courses/english/eng103/">ENG103</a></li></ul><li class="tree-item"><a class="tree-file" href="/academics/other-courses/ethcs303/">ETHCS303</a></li><li class="tree-item"><a class="tree-file" href="/academics/other-courses/com201/">COM201</a></li><li class="tree-item"><a class="tree-file" href="/academics/other-courses/isc113/">ISC113</a></li><li class="tree-item"><a class="tree-file" href="/academics/other-courses/isc213/">ISC213</a></li></ul></ul></div></nav>
+                <nav class="sidebar academic-sidebar" aria-label="Academic directory"><div class="sidebar-header"><span class="sidebar-title">SYSTEM_DIRECTORY</span><button class="sidebar-collapse-button" type="button" data-sidebar-collapse aria-expanded="true"><span class="collapse-icon">&lt;</span></button></div><div class="file-tree"><ul class="tree-node"><li class="tree-item root-dir"><a class="tree-course-link" href="/academics/">ACADEMICS/</a></li><li class="tree-item"><a class="tree-file" href="/academic-plan-themes/academic-plan/">ACADEMIC PLAN</a></li><li class="tree-item"><button class="tree-course-link tree-toggle-button" type="button" data-tree-toggle="tree-computer-science" aria-expanded="false"><span class="tree-toggle">[+]</span> COMPUTER SCIENCE/</button></li><ul id="tree-computer-science" class="tree-children"><li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs101/">CS101</a></li><li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs102/">CS102</a></li><li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs210/">CS210</a></li><li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs285/">CS285</a></li><li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs330/">CS330</a></li><li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs331/">CS331</a></li><li class="tree-item"><a class="tree-file" href="/academics/computer-science/cs340/">CS340</a></li></ul><li class="tree-item dir-open"><button class="tree-course-link tree-toggle-button" type="button" data-tree-toggle="tree-software-engineering" aria-expanded="true"><span class="tree-toggle">[-]</span> SOFTWARE ENGINEERING/</button></li><ul id="tree-software-engineering" class="tree-children is-open"><li class="tree-item"><a class="tree-file" href="/academics/software-engineering/se201/">SE201</a></li><li class="tree-item"><a class="tree-file" href="/academics/software-engineering/se311/">SE311</a></li><li class="tree-item file-active"><a class="tree-file" href="/academics/software-engineering/se322/"><span class="status-dot"></span>SE322</a></li><ul class="tree-children section-children"><li class="tree-item tree-section"><a class="tree-file" href="/academics/software-engineering/se322/" data-en-text="OVERVIEW" data-ar-text="نظرة عامة">OVERVIEW</a></li><li class="tree-item tree-section"><a class="tree-file" href="/academics/software-engineering/se322/slide-breakdowns/" data-en-text="SLIDE BREAKDOWNS" data-ar-text="تفكيك الشرائح">SLIDE BREAKDOWNS</a></li><li class="tree-item tree-section"><a class="tree-file" href="/academics/software-engineering/se322/slides/" data-en-text="SLIDES" data-ar-text="الشرائح">SLIDES</a></li><li class="tree-item tree-section file-active"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/" data-en-text="STUDY MATERIAL" data-ar-text="المواد الدراسية"><span class="status-dot"></span>STUDY MATERIAL</a></li><ul class="tree-children item-children is-open"><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/summary/">SUMMARY</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/">MINDMAPS</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/01-introduction-to-software-design-and-architecture/">Chapter 1: Introduction to Software Design and Architecture</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/02-software-architecture/">Chapter 2: Software Architecture</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/03-quality-attributes/">Chapter 3: Quality Attributes</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/04-architecture-patterns/">Chapter 4: Architecture Patterns</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/05-principles-of-detailed-design/">Chapter 5: Principles of Detailed Design</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/06-creational-design-patterns/">Chapter 6: Creational Design Patterns</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/07-structural-design-patterns/">Chapter 7: Structural Design Patterns</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/07-behavioral-design-patterns/">Chapter 7: Behavioral Design Patterns</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/08-architecture-evaluation/">Chapter 8: Architecture Evaluation</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/mindmaps/09-architecture-documentation/">Chapter 9: Architecture Documentation</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/activity/">ACTIVITY</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/">LISTING VAULT</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/01-introduction-to-software-design-and-architecture/">Chapter 1: Introduction to Software Design and Architecture Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/02-software-architecture/">Chapter 2: Software Architecture Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/03-quality-attributes/">Chapter 3: Quality Attributes Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/04-architecture-patterns/">Chapter 4: Architecture Patterns Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/05-principles-of-detailed-design/">Chapter 5: Principles of Detailed Design Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/06-creational-design-patterns/">Chapter 6: Creational Design Patterns Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/07-structural-design-patterns/">Chapter 7: Structural Design Patterns Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/07-behavioral-design-patterns/">Chapter 7: Behavioral Design Patterns Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/08-architecture-evaluation/">Chapter 8: Architecture Evaluation Listing</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/listing-vault/09-architecture-documentation/">Chapter 9: Architecture Documentation Listing</a></li><li class="tree-item tree-viewer file-active"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/diagram-video-explanation/"><span class="status-dot"></span>DIAGRAM VIDEO EXPLANATION</a></li><li class="tree-item tree-viewer"><a class="tree-file" href="/academics/software-engineering/se322/extra-resources/4-plus-1-view-model/">4+1 VIEW MODEL MAP</a></li></ul><li class="tree-item tree-section"><a class="tree-file" href="/academics/software-engineering/se322/exams/" data-en-text="EXAMS" data-ar-text="الاختبارات">EXAMS</a></li></ul><li class="tree-item"><a class="tree-file" href="/academics/software-engineering/se365/">SE365</a></li><li class="tree-item"><a class="tree-file" href="/academics/software-engineering/se371/">SE371</a></li><li class="tree-item"><a class="tree-file" href="/academics/software-engineering/se401/">SE401</a></li><li class="tree-item"><a class="tree-file" href="/academics/software-engineering/se411/">SE411</a></li><li class="tree-item"><a class="tree-file" href="/academics/software-engineering/se423/">SE423</a></li><li class="tree-item"><a class="tree-file" href="/academics/software-engineering/se499/">SE499</a></li></ul><li class="tree-item cyber-track"><button class="tree-course-link tree-toggle-button" type="button" data-tree-toggle="tree-cybersecurity" aria-expanded="false"><span class="tree-toggle">[+]</span> CYBERSECURITY/</button></li><ul id="tree-cybersecurity" class="tree-children"><li class="tree-item"><a class="tree-file" href="/academics/cybersecurity/cys401/">CYS401</a></li><li class="tree-item"><a class="tree-file" href="/academics/cybersecurity/cys402/">CYS402</a></li><li class="tree-item"><a class="tree-file" href="/academics/cybersecurity/cys403/">CYS403</a></li><li class="tree-item"><a class="tree-file" href="/academics/cybersecurity/cys405/">CYS405</a></li><li class="tree-item"><a class="tree-file" href="/academics/cybersecurity/cys406/">CYS406</a></li></ul><li class="tree-item"><button class="tree-course-link tree-toggle-button" type="button" data-tree-toggle="tree-math" aria-expanded="false"><span class="tree-toggle">[+]</span> MATH/</button></li><ul id="tree-math" class="tree-children"><li class="tree-item"><a class="tree-file" href="/academics/math/stat101/">STAT101</a></li><li class="tree-item"><a class="tree-file" href="/academics/math/math221/">MATH221</a></li><li class="tree-item"><a class="tree-file" href="/academics/math/phy105/">PHY105</a></li><li class="tree-item"><a class="tree-file" href="/academics/math/phy205/">PHY205</a></li><li class="tree-item"><a class="tree-file" href="/academics/math/sci101/">SCI101</a></li></ul><li class="tree-item"><button class="tree-course-link tree-toggle-button" type="button" data-tree-toggle="tree-other-courses" aria-expanded="false"><span class="tree-toggle">[+]</span> OTHER COURSES/</button></li><ul id="tree-other-courses" class="tree-children"><li class="tree-item"><button class="tree-course-link tree-toggle-button" type="button" data-tree-toggle="tree-english" aria-expanded="false"><span class="tree-toggle">[+]</span> ENGLISH HUB/</button></li><ul id="tree-english" class="tree-children"><li class="tree-item"><a class="tree-file" href="/academics/other-courses/english/" data-en-text="OVERVIEW" data-ar-text="نظرة عامة">OVERVIEW</a></li><li class="tree-item"><a class="tree-file" href="/academics/other-courses/english/eng101/">ENG101</a></li><li class="tree-item"><a class="tree-file" href="/academics/other-courses/english/eng103/">ENG103</a></li></ul><li class="tree-item"><a class="tree-file" href="/academics/other-courses/ethcs303/">ETHCS303</a></li><li class="tree-item"><a class="tree-file" href="/academics/other-courses/com201/">COM201</a></li><li class="tree-item"><a class="tree-file" href="/academics/other-courses/isc113/">ISC113</a></li><li class="tree-item"><a class="tree-file" href="/academics/other-courses/isc213/">ISC213</a></li></ul></ul></div></nav>
         <main class="sys-main" id="main-content" tabindex="-1">
             <div class="content-topbar">
-                <div class="breadcrumb"><a class="breadcrumb-link" href="/academics/">Academics</a> / <a class="breadcrumb-link" href="/academics/software-engineering/">Software Engineering</a> / <a class="breadcrumb-link" href="/academics/software-engineering/se322/">SE322</a> / <a class="breadcrumb-link" href="/academics/software-engineering/se322/extra-resources/" data-en-text="Study Material" data-ar-text="المواد الدراسية">Study Material</a> / <span class="current" data-en-text="Mindmaps" data-ar-text="الخرائط الذهنية">Mindmaps</span></div>
+                <div class="breadcrumb"><a class="breadcrumb-link" href="/academics/">Academics</a> / <a class="breadcrumb-link" href="/academics/software-engineering/">Software Engineering</a> / <a class="breadcrumb-link" href="/academics/software-engineering/se322/">SE322</a> / <a class="breadcrumb-link" href="/academics/software-engineering/se322/extra-resources/" data-en-text="Study Material" data-ar-text="المواد الدراسية">Study Material</a> / <span class="current" data-en-text="Diagram Video Explanation" data-ar-text="شرح المخططات بالفيديو">Diagram Video Explanation</span></div>
                 <div class="sys-time" id="live-clock">SYS_TIME [ 00 00 00 ]</div>
             </div>
             <div class="content-header">
                 <h1 class="course-code">SE322</h1>
-                <div class="type-label" data-en-text="MINDMAPS" data-ar-text="الخرائط الذهنية">MINDMAPS
-                </div>
+                <div class="type-label" data-en-text="DIAGRAM VIDEO EXPLANATION" data-ar-text="شرح المخططات بالفيديو">DIAGRAM VIDEO EXPLANATION</div>
             </div>
             <nav class="content-tabs">
                 <a href="/academics/software-engineering/se322/" class="tab" data-en-text="Overview"
@@ -1255,7 +1298,200 @@
                 <a href="/academics/software-engineering/se322/exams/" class="tab" data-en-text="Exams"
                     data-ar-text="الاختبارات">Exams</a>
             </nav>
-            <div class="directory-container"><div class="dir-header"><span>SEQ</span><span>DESCRIPTOR</span><span>SYS_STATE</span><span></span></div><a class="dir-row" href="/academics/software-engineering/se322/extra-resources/mindmaps/01-introduction-to-software-design-and-architecture/"><div class="dir-num">1</div><div class="dir-title">Chapter 1: Introduction to Software Design and Architecture</div><div class="dir-status"><span class="status-tag available">AVAILABLE</span></div><div class="dir-arrow">-&gt;</div></a><a class="dir-row" href="/academics/software-engineering/se322/extra-resources/mindmaps/02-software-architecture/"><div class="dir-num">2</div><div class="dir-title">Chapter 2: Software Architecture</div><div class="dir-status"><span class="status-tag available">AVAILABLE</span></div><div class="dir-arrow">-&gt;</div></a><a class="dir-row" href="/academics/software-engineering/se322/extra-resources/mindmaps/03-quality-attributes/"><div class="dir-num">3</div><div class="dir-title">Chapter 3: Quality Attributes</div><div class="dir-status"><span class="status-tag available">AVAILABLE</span></div><div class="dir-arrow">-&gt;</div></a><a class="dir-row" href="/academics/software-engineering/se322/extra-resources/mindmaps/04-architecture-patterns/"><div class="dir-num">4</div><div class="dir-title">Chapter 4: Architecture Patterns</div><div class="dir-status"><span class="status-tag available">AVAILABLE</span></div><div class="dir-arrow">-&gt;</div></a><a class="dir-row" href="/academics/software-engineering/se322/extra-resources/mindmaps/05-principles-of-detailed-design/"><div class="dir-num">5</div><div class="dir-title">Chapter 5: Principles of Detailed Design</div><div class="dir-status"><span class="status-tag available">AVAILABLE</span></div><div class="dir-arrow">-&gt;</div></a><a class="dir-row" href="/academics/software-engineering/se322/extra-resources/mindmaps/06-creational-design-patterns/"><div class="dir-num">6</div><div class="dir-title">Chapter 6: Creational Design Patterns</div><div class="dir-status"><span class="status-tag available">AVAILABLE</span></div><div class="dir-arrow">-&gt;</div></a><a class="dir-row" href="/academics/software-engineering/se322/extra-resources/mindmaps/07-structural-design-patterns/"><div class="dir-num">7</div><div class="dir-title">Chapter 7: Structural Design Patterns</div><div class="dir-status"><span class="status-tag available">AVAILABLE</span></div><div class="dir-arrow">-&gt;</div></a><a class="dir-row" href="/academics/software-engineering/se322/extra-resources/mindmaps/07-behavioral-design-patterns/"><div class="dir-num">7</div><div class="dir-title">Chapter 7: Behavioral Design Patterns</div><div class="dir-status"><span class="status-tag available">AVAILABLE</span></div><div class="dir-arrow">-&gt;</div></a><a class="dir-row" href="/academics/software-engineering/se322/extra-resources/mindmaps/08-architecture-evaluation/"><div class="dir-num">8</div><div class="dir-title">Chapter 8: Architecture Evaluation</div><div class="dir-status"><span class="status-tag available">AVAILABLE</span></div><div class="dir-arrow">-&gt;</div></a><a class="dir-row" href="/academics/software-engineering/se322/extra-resources/mindmaps/09-architecture-documentation/"><div class="dir-num">9</div><div class="dir-title">Chapter 9: Architecture Documentation</div><div class="dir-status"><span class="status-tag available">AVAILABLE</span></div><div class="dir-arrow">-&gt;</div></a></div>
+            <div class="dve-wrap">
+                <div class="dve-intro">
+                    <p class="dve-heading" data-en-text="UML diagrams, explained on video" data-ar-text="مخططات UML مشروحة بالفيديو">UML diagrams, explained on video</p>
+                    <p class="dve-lede" data-en-text="14 short walkthroughs, mostly from the Georgia Tech Software Development Process course, with two full guides from Lucid Software. Pair them with the Chapter 9 documentation views." data-ar-text="14 شرحًا قصيرًا، معظمها من مقرر Software Development Process في Georgia Tech، مع دليلين شاملين من Lucid Software. استخدمها مع طرق التوثيق في الفصل التاسع.">14 short walkthroughs, mostly from the Georgia Tech Software Development Process course, with two full guides from Lucid Software. Pair them with the Chapter 9 documentation views.</p>
+                    <nav class="dve-chips" aria-label="Video topics"><a class="dve-chip" href="#dve-class"><span data-en-text="Class Diagrams" data-ar-text="مخططات الفئات">Class Diagrams</span><span class="dve-chip-count">5</span></a><a class="dve-chip" href="#dve-structural"><span data-en-text="Structural Diagrams" data-ar-text="المخططات الهيكلية">Structural Diagrams</span><span class="dve-chip-count">2</span></a><a class="dve-chip" href="#dve-behavioral"><span data-en-text="Behavioral Diagrams" data-ar-text="المخططات السلوكية">Behavioral Diagrams</span><span class="dve-chip-count">4</span></a><a class="dve-chip" href="#dve-process"><span data-en-text="Process Context" data-ar-text="سياق العملية">Process Context</span><span class="dve-chip-count">3</span></a></nav>
+                </div>
+                <section class="dve-group" id="dve-class" aria-labelledby="dve-class-h">
+                    <div class="dve-group-head">
+                        <h2 id="dve-class-h" class="dve-group-title"><span data-en-text="Class Diagrams" data-ar-text="مخططات الفئات">Class Diagrams</span><span class="dve-group-count">05</span></h2>
+                        <p class="dve-group-sub" data-en-text="Build a class diagram piece by piece, then tie it together." data-ar-text="ابنِ مخطط الفئات خطوة بخطوة ثم اربط أجزاءه.">Build a class diagram piece by piece, then tie it together.</p>
+                    </div>
+                    <div class="dve-grid">
+                    <article class="dve-card">
+                        <button class="dve-player" type="button" data-video-id="ZyST6OFtb7k" aria-label="Play Classes video">
+                            <img src="https://i.ytimg.com/vi/ZyST6OFtb7k/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                            <span class="dve-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        </button>
+                        <div class="dve-body">
+                            <div class="dve-meta"><span class="dve-num">01</span><span class="dve-tag dve-tag-class" data-en-text="CLASS" data-ar-text="مخططات الفئات">CLASS</span></div>
+                            <h3 class="dve-title" data-en-text="Classes" data-ar-text="الفئات">Classes</h3>
+                            <p class="dve-blurb">What a class box represents and how to name and draw one.</p>
+                            <div class="dve-foot"><span class="dve-source">Udacity / Georgia Tech</span><a class="dve-link" href="https://www.youtube.com/watch?v=ZyST6OFtb7k" target="_blank" rel="noopener" data-en-text="Open on YouTube" data-ar-text="افتح في يوتيوب">Open on YouTube</a></div>
+                        </div>
+                    </article><article class="dve-card">
+                        <button class="dve-player" type="button" data-video-id="GLZuZVzmf0A" aria-label="Play Attributes video">
+                            <img src="https://i.ytimg.com/vi/GLZuZVzmf0A/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                            <span class="dve-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        </button>
+                        <div class="dve-body">
+                            <div class="dve-meta"><span class="dve-num">02</span><span class="dve-tag dve-tag-class" data-en-text="CLASS" data-ar-text="مخططات الفئات">CLASS</span></div>
+                            <h3 class="dve-title" data-en-text="Attributes" data-ar-text="السمات">Attributes</h3>
+                            <p class="dve-blurb">Recording the data a class holds, with types and visibility.</p>
+                            <div class="dve-foot"><span class="dve-source">Udacity / Georgia Tech</span><a class="dve-link" href="https://www.youtube.com/watch?v=GLZuZVzmf0A" target="_blank" rel="noopener" data-en-text="Open on YouTube" data-ar-text="افتح في يوتيوب">Open on YouTube</a></div>
+                        </div>
+                    </article><article class="dve-card">
+                        <button class="dve-player" type="button" data-video-id="JY9e5UveVxo" aria-label="Play Operations video">
+                            <img src="https://i.ytimg.com/vi/JY9e5UveVxo/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                            <span class="dve-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        </button>
+                        <div class="dve-body">
+                            <div class="dve-meta"><span class="dve-num">03</span><span class="dve-tag dve-tag-class" data-en-text="CLASS" data-ar-text="مخططات الفئات">CLASS</span></div>
+                            <h3 class="dve-title" data-en-text="Operations" data-ar-text="العمليات">Operations</h3>
+                            <p class="dve-blurb">Adding the behaviour a class offers, with parameters and return types.</p>
+                            <div class="dve-foot"><span class="dve-source">Udacity / Georgia Tech</span><a class="dve-link" href="https://www.youtube.com/watch?v=JY9e5UveVxo" target="_blank" rel="noopener" data-en-text="Open on YouTube" data-ar-text="افتح في يوتيوب">Open on YouTube</a></div>
+                        </div>
+                    </article><article class="dve-card">
+                        <button class="dve-player" type="button" data-video-id="E3lEGoXEQuM" aria-label="Play Relationships video">
+                            <img src="https://i.ytimg.com/vi/E3lEGoXEQuM/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                            <span class="dve-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        </button>
+                        <div class="dve-body">
+                            <div class="dve-meta"><span class="dve-num">04</span><span class="dve-tag dve-tag-class" data-en-text="CLASS" data-ar-text="مخططات الفئات">CLASS</span></div>
+                            <h3 class="dve-title" data-en-text="Relationships" data-ar-text="العلاقات">Relationships</h3>
+                            <p class="dve-blurb">Dependency, association, aggregation, composition and generalization.</p>
+                            <div class="dve-foot"><span class="dve-source">Udacity / Georgia Tech</span><a class="dve-link" href="https://www.youtube.com/watch?v=E3lEGoXEQuM" target="_blank" rel="noopener" data-en-text="Open on YouTube" data-ar-text="افتح في يوتيوب">Open on YouTube</a></div>
+                        </div>
+                    </article><article class="dve-card">
+                        <button class="dve-player" type="button" data-video-id="BXnfVqJLyp4" aria-label="Play Creation Tips video">
+                            <img src="https://i.ytimg.com/vi/BXnfVqJLyp4/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                            <span class="dve-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        </button>
+                        <div class="dve-body">
+                            <div class="dve-meta"><span class="dve-num">05</span><span class="dve-tag dve-tag-class" data-en-text="CLASS" data-ar-text="مخططات الفئات">CLASS</span></div>
+                            <h3 class="dve-title" data-en-text="Creation Tips" data-ar-text="نصائح الإنشاء">Creation Tips</h3>
+                            <p class="dve-blurb">Practical advice for turning requirements into a clean class diagram.</p>
+                            <div class="dve-foot"><span class="dve-source">Udacity / Georgia Tech</span><a class="dve-link" href="https://www.youtube.com/watch?v=BXnfVqJLyp4" target="_blank" rel="noopener" data-en-text="Open on YouTube" data-ar-text="افتح في يوتيوب">Open on YouTube</a></div>
+                        </div>
+                    </article>
+                    </div>
+                </section><section class="dve-group" id="dve-structural" aria-labelledby="dve-structural-h">
+                    <div class="dve-group-head">
+                        <h2 id="dve-structural-h" class="dve-group-title"><span data-en-text="Structural Diagrams" data-ar-text="المخططات الهيكلية">Structural Diagrams</span><span class="dve-group-count">02</span></h2>
+                        <p class="dve-group-sub" data-en-text="How a system is split up and where it runs." data-ar-text="كيف يُقسَّم النظام وأين يعمل.">How a system is split up and where it runs.</p>
+                    </div>
+                    <div class="dve-grid">
+                    <article class="dve-card">
+                        <button class="dve-player" type="button" data-video-id="ipKJwnPsst8" aria-label="Play Component Diagram video">
+                            <img src="https://i.ytimg.com/vi/ipKJwnPsst8/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                            <span class="dve-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        </button>
+                        <div class="dve-body">
+                            <div class="dve-meta"><span class="dve-num">06</span><span class="dve-tag dve-tag-structural" data-en-text="STRUCTURAL" data-ar-text="المخططات الهيكلية">STRUCTURAL</span></div>
+                            <h3 class="dve-title" data-en-text="Component Diagram" data-ar-text="مخطط المكونات">Component Diagram</h3>
+                            <p class="dve-blurb">How a system splits into components, the interfaces they provide and require, and how they wire together.</p>
+                            <div class="dve-foot"><span class="dve-source">Udacity / Georgia Tech</span><a class="dve-link" href="https://www.youtube.com/watch?v=ipKJwnPsst8" target="_blank" rel="noopener" data-en-text="Open on YouTube" data-ar-text="افتح في يوتيوب">Open on YouTube</a></div>
+                        </div>
+                    </article><article class="dve-card">
+                        <button class="dve-player" type="button" data-video-id="IzEzX5HW_CU" aria-label="Play Deployment Diagram video">
+                            <img src="https://i.ytimg.com/vi/IzEzX5HW_CU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                            <span class="dve-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        </button>
+                        <div class="dve-body">
+                            <div class="dve-meta"><span class="dve-num">07</span><span class="dve-tag dve-tag-structural" data-en-text="STRUCTURAL" data-ar-text="المخططات الهيكلية">STRUCTURAL</span></div>
+                            <h3 class="dve-title" data-en-text="Deployment Diagram" data-ar-text="مخطط النشر">Deployment Diagram</h3>
+                            <p class="dve-blurb">How software artifacts map onto physical nodes: devices, execution environments and the links between them.</p>
+                            <div class="dve-foot"><span class="dve-source">Udacity / Georgia Tech</span><a class="dve-link" href="https://www.youtube.com/watch?v=IzEzX5HW_CU" target="_blank" rel="noopener" data-en-text="Open on YouTube" data-ar-text="افتح في يوتيوب">Open on YouTube</a></div>
+                        </div>
+                    </article>
+                    </div>
+                </section><section class="dve-group" id="dve-behavioral" aria-labelledby="dve-behavioral-h">
+                    <div class="dve-group-head">
+                        <h2 id="dve-behavioral-h" class="dve-group-title"><span data-en-text="Behavioral Diagrams" data-ar-text="المخططات السلوكية">Behavioral Diagrams</span><span class="dve-group-count">04</span></h2>
+                        <p class="dve-group-sub" data-en-text="What the system does and how objects talk over time." data-ar-text="ماذا يفعل النظام وكيف تتواصل الكائنات عبر الزمن.">What the system does and how objects talk over time.</p>
+                    </div>
+                    <div class="dve-grid">
+                    <article class="dve-card">
+                        <button class="dve-player" type="button" data-video-id="dsACvh0QWSs" aria-label="Play Use Case Diagram video">
+                            <img src="https://i.ytimg.com/vi/dsACvh0QWSs/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                            <span class="dve-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        </button>
+                        <div class="dve-body">
+                            <div class="dve-meta"><span class="dve-num">08</span><span class="dve-tag dve-tag-behavioral" data-en-text="BEHAVIORAL" data-ar-text="المخططات السلوكية">BEHAVIORAL</span></div>
+                            <h3 class="dve-title" data-en-text="Use Case Diagram" data-ar-text="مخطط حالات الاستخدام">Use Case Diagram</h3>
+                            <p class="dve-blurb">Actors, use cases and the include / extend relationships that describe what a system does for its users.</p>
+                            <div class="dve-foot"><span class="dve-source">Udacity / Georgia Tech</span><a class="dve-link" href="https://www.youtube.com/watch?v=dsACvh0QWSs" target="_blank" rel="noopener" data-en-text="Open on YouTube" data-ar-text="افتح في يوتيوب">Open on YouTube</a></div>
+                        </div>
+                    </article><article class="dve-card">
+                        <button class="dve-player" type="button" data-video-id="4emxjxonNRI" aria-label="Play Use Case Diagrams: Full Guide video">
+                            <img src="https://i.ytimg.com/vi/4emxjxonNRI/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                            <span class="dve-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        </button>
+                        <div class="dve-body">
+                            <div class="dve-meta"><span class="dve-num">09</span><span class="dve-tag dve-tag-behavioral" data-en-text="BEHAVIORAL" data-ar-text="المخططات السلوكية">BEHAVIORAL</span></div>
+                            <h3 class="dve-title" data-en-text="Use Case Diagrams: Full Guide" data-ar-text="دليل مخططات حالات الاستخدام">Use Case Diagrams: Full Guide</h3>
+                            <p class="dve-blurb">A complete walkthrough of use case notation, from system boundary to generalization, with a worked example.</p>
+                            <div class="dve-foot"><span class="dve-source">Lucid Software</span><a class="dve-link" href="https://www.youtube.com/watch?v=4emxjxonNRI" target="_blank" rel="noopener" data-en-text="Open on YouTube" data-ar-text="افتح في يوتيوب">Open on YouTube</a></div>
+                        </div>
+                    </article><article class="dve-card">
+                        <button class="dve-player" type="button" data-video-id="XIQKt5Bs7II" aria-label="Play Sequence Diagram video">
+                            <img src="https://i.ytimg.com/vi/XIQKt5Bs7II/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                            <span class="dve-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        </button>
+                        <div class="dve-body">
+                            <div class="dve-meta"><span class="dve-num">10</span><span class="dve-tag dve-tag-behavioral" data-en-text="BEHAVIORAL" data-ar-text="المخططات السلوكية">BEHAVIORAL</span></div>
+                            <h3 class="dve-title" data-en-text="Sequence Diagram" data-ar-text="مخطط التسلسل">Sequence Diagram</h3>
+                            <p class="dve-blurb">Lifelines, messages and activations: modelling an interaction as it unfolds in time.</p>
+                            <div class="dve-foot"><span class="dve-source">Udacity / Georgia Tech</span><a class="dve-link" href="https://www.youtube.com/watch?v=XIQKt5Bs7II" target="_blank" rel="noopener" data-en-text="Open on YouTube" data-ar-text="افتح في يوتيوب">Open on YouTube</a></div>
+                        </div>
+                    </article><article class="dve-card">
+                        <button class="dve-player" type="button" data-video-id="pCK6prSq8aw" aria-label="Play How to Make a Sequence Diagram video">
+                            <img src="https://i.ytimg.com/vi/pCK6prSq8aw/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                            <span class="dve-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        </button>
+                        <div class="dve-body">
+                            <div class="dve-meta"><span class="dve-num">11</span><span class="dve-tag dve-tag-behavioral" data-en-text="BEHAVIORAL" data-ar-text="المخططات السلوكية">BEHAVIORAL</span></div>
+                            <h3 class="dve-title" data-en-text="How to Make a Sequence Diagram" data-ar-text="كيف ترسم مخطط التسلسل">How to Make a Sequence Diagram</h3>
+                            <p class="dve-blurb">Step-by-step construction of a sequence diagram, including fragments for loops and alternatives.</p>
+                            <div class="dve-foot"><span class="dve-source">Lucid Software</span><a class="dve-link" href="https://www.youtube.com/watch?v=pCK6prSq8aw" target="_blank" rel="noopener" data-en-text="Open on YouTube" data-ar-text="افتح في يوتيوب">Open on YouTube</a></div>
+                        </div>
+                    </article>
+                    </div>
+                </section><section class="dve-group" id="dve-process" aria-labelledby="dve-process-h">
+                    <div class="dve-group-head">
+                        <h2 id="dve-process-h" class="dve-group-title"><span data-en-text="Process Context" data-ar-text="سياق العملية">Process Context</span><span class="dve-group-count">03</span></h2>
+                        <p class="dve-group-sub" data-en-text="Where these diagrams fit in the wider development process." data-ar-text="أين تقع هذه المخططات في عملية التطوير الأشمل.">Where these diagrams fit in the wider development process.</p>
+                    </div>
+                    <div class="dve-grid">
+                    <article class="dve-card">
+                        <button class="dve-player" type="button" data-video-id="miuUIfpaC40" aria-label="Play Requirements Engineering video">
+                            <img src="https://i.ytimg.com/vi/miuUIfpaC40/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                            <span class="dve-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        </button>
+                        <div class="dve-body">
+                            <div class="dve-meta"><span class="dve-num">12</span><span class="dve-tag dve-tag-process" data-en-text="PROCESS" data-ar-text="سياق العملية">PROCESS</span></div>
+                            <h3 class="dve-title" data-en-text="Requirements Engineering" data-ar-text="هندسة المتطلبات">Requirements Engineering</h3>
+                            <p class="dve-blurb">Eliciting, analysing and specifying requirements before design begins.</p>
+                            <div class="dve-foot"><span class="dve-source">Udacity / Georgia Tech</span><a class="dve-link" href="https://www.youtube.com/watch?v=miuUIfpaC40" target="_blank" rel="noopener" data-en-text="Open on YouTube" data-ar-text="افتح في يوتيوب">Open on YouTube</a></div>
+                        </div>
+                    </article><article class="dve-card">
+                        <button class="dve-player" type="button" data-video-id="gQrSxbfUjug" aria-label="Play Verification &amp; Validation video">
+                            <img src="https://i.ytimg.com/vi/gQrSxbfUjug/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                            <span class="dve-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        </button>
+                        <div class="dve-body">
+                            <div class="dve-meta"><span class="dve-num">13</span><span class="dve-tag dve-tag-process" data-en-text="PROCESS" data-ar-text="سياق العملية">PROCESS</span></div>
+                            <h3 class="dve-title" data-en-text="Verification &amp; Validation" data-ar-text="التحقق والمصادقة">Verification &amp; Validation</h3>
+                            <p class="dve-blurb">Building the product right versus building the right product.</p>
+                            <div class="dve-foot"><span class="dve-source">Udacity / Georgia Tech</span><a class="dve-link" href="https://www.youtube.com/watch?v=gQrSxbfUjug" target="_blank" rel="noopener" data-en-text="Open on YouTube" data-ar-text="افتح في يوتيوب">Open on YouTube</a></div>
+                        </div>
+                    </article><article class="dve-card">
+                        <button class="dve-player" type="button" data-video-id="0Y8YLMJ3ERw" aria-label="Play Maintenance video">
+                            <img src="https://i.ytimg.com/vi/0Y8YLMJ3ERw/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+                            <span class="dve-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+                        </button>
+                        <div class="dve-body">
+                            <div class="dve-meta"><span class="dve-num">14</span><span class="dve-tag dve-tag-process" data-en-text="PROCESS" data-ar-text="سياق العملية">PROCESS</span></div>
+                            <h3 class="dve-title" data-en-text="Maintenance" data-ar-text="الصيانة">Maintenance</h3>
+                            <p class="dve-blurb">Corrective, adaptive, perfective and preventive maintenance after release.</p>
+                            <div class="dve-foot"><span class="dve-source">Udacity / Georgia Tech</span><a class="dve-link" href="https://www.youtube.com/watch?v=0Y8YLMJ3ERw" target="_blank" rel="noopener" data-en-text="Open on YouTube" data-ar-text="افتح في يوتيوب">Open on YouTube</a></div>
+                        </div>
+                    </article>
+                    </div>
+                </section>
+            </div>
 <footer class="shoug-site-footer">
                 <div class="shoug-footer-grid">
                     <div>
@@ -1367,6 +1603,19 @@
     <script src="/javascripts/mobile-navigation.js" defer></script>
 <script src="/javascripts/register-sw.js" defer></script>
 <script src="/javascripts/recent-pages.js" defer></script>
+<script>
+document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.dve-player');
+    if (!btn) return;
+    var f = document.createElement('iframe');
+    f.className = 'dve-frame';
+    f.src = 'https://www.youtube-nocookie.com/embed/' + btn.dataset.videoId + '?autoplay=1&rel=0';
+    f.title = btn.getAttribute('aria-label').replace(/^Play /, '');
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    f.allowFullscreen = true;
+    btn.replaceWith(f);
+});
+</script>
 </body>
 
 </html>
